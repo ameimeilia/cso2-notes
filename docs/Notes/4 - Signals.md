@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 4
 ---
 # Signals
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
 ##### Signals
 - Unix-like operating system feature
 - similar to exceptions, but for processes

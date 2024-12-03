@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 13
 ---
 # Out-of-Order
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf
 ##### Instruction Queue and Dispatch
 - iterate through instruction queue each cycle and determine which instructions can be run
 <div style="text-align: center">

@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 1
 ---
 # Building
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 ##### C/Pointer Review
 <div style="text-align: center">
   <img src="{{ C+PointersReview | center | relative_url }}" alt="Screenshot">

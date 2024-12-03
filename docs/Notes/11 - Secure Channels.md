@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 11
 ---
 # Secure Channels
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 ##### Secure Communication Context
 - communication on a network between **principals** (people/servers/programs)
 

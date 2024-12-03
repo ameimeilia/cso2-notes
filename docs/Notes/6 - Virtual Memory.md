@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 6
 ---
 # Virtual Memory
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
 ##### Address Translation
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 3.00.13 PM.png | relative_url }}" alt="Screenshot" width="600">

@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 7
 ---
 # Caches
->[!note]
->Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf
 ##### Memory Hierarchy Assumptions
 - **temporal locality**: caches should keep *recently accessed values*
 - **spatial locality**: caches should *store adjacent values at the same time*

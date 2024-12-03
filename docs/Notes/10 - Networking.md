@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 10
 ---
 # Networking
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 ##### Networks Review
 **Mailbox Abstraction**
 - send/receive messages

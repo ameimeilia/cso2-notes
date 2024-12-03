@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 3
 ---
 # Privilege, Exceptions
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
+{: .highlight }
+Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 ##### Kernel Mode
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-09 at 2.08.32 PM.png | relative_url }}" alt="Screenshot" width="500">
@@ -40,7 +40,9 @@ nav_order: 3
 	- on error → `%rax` contains -1 times “error number”
 
 *example - Hello World*
-![[Screenshot 2024-09-09 at 2.35.01 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 2.35.01 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Linux System Call Examples**
 1. `mmap, brk`: allocate memory
@@ -152,6 +154,10 @@ nav_order: 3
 1. OS starts running (some sort of exception)
 2. save old registers + program counter + address mapping in individual process’s process control block (PCB)
 3. sets new registers + address mapping, jump to new program counter
-![[Screenshot 2024-09-10 at 2.32.56 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-10 at 2.32.56 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Exceptions vs Context Switch
-![[Screenshot 2024-09-10 at 2.59.40 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-10 at 2.59.40 PM.png | relative_url }}" alt="Screenshot">
+</div>

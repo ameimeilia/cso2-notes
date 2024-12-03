@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 12
 ---
 # Pipelining
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf
+{: .highlight }
+Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf
 ##### Pipelining
 - **latency**: time to complete one instruction
 - **throughput**: rate to complete many instructions (time between finishes = time between starts)

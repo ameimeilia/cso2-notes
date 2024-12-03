@@ -5,8 +5,8 @@ parent: Notes
 nav_order: 2
 ---
 # Accounts
-> [!note]
-> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf
+{: .highlight }
+Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf
 ##### POSIX User IDs and Groups
 **User IDs**
 - every process has a user ID that is used to decide what the process is authorized to do
