@@ -1,3 +1,10 @@
+---
+layout: default
+title: Accounts
+parent: notes
+nav_order: 2
+---
+# Accounts
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf
 ##### POSIX User IDs and Groups

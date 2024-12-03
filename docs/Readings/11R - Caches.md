@@ -1,3 +1,10 @@
+---
+layout: default
+title: Caches
+parent: readings
+nav_order: 9
+---
+# Caches
 ### 1 A thought experiment
 - Single-level caching either remembers memory or does not
 - Multi-level caching can partially remember and assist in faster recovery

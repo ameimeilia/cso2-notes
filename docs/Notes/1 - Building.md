@@ -1,3 +1,10 @@
+---
+layout: default
+title: Building
+parent: notes
+nav_order: 1
+---
+# Building
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 ##### C/Pointer Review

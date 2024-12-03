@@ -1,3 +1,10 @@
+---
+layout: default
+title: Caches
+parent: notes
+nav_order: 7
+---
+# Caches
 >[!note]
 >Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf
 ##### Memory Hierarchy Assumptions

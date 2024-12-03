@@ -1,3 +1,10 @@
+---
+layout: default
+title: Threads
+parent: readings
+nav_order: 6
+---
+# Threads
 ### 3 `fork` et al.
 - **`fork`**: Creates a new process.
 - **`waitpid`**: Removes a process.

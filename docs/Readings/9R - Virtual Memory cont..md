@@ -1,3 +1,10 @@
+---
+layout: default
+title: Virtual Memory cont.
+parent: readings
+nav_order: 8
+---
+# Virtual Memory cont.
 ### 2.1 Segments revisited
 - **Segments**: Pairs of starting and stopping addresses with permissions, used internally by operating systems to represent memory regions.
 - **Hardware Invisibility**: Segments are software-only constructs and are not visible to hardware.

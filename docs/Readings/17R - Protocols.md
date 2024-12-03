@@ -1,3 +1,10 @@
+---
+layout: default
+title: Protocols
+parent: readings
+nav_order: 12
+---
+# Protocols
 https://www.cs.virginia.edu/~cr4bd/3130/F2024/readings/protocols.html
 
 ## 1 Packets with headers

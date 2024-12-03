@@ -1,3 +1,10 @@
+---
+layout: default
+title: Accounts, POSIX Permissions
+parent: readings
+nav_order: 3
+---
+# Accounts, POSIX Permissions
 ### Accounts
 #### 1 Per-process permissions
 - **Function Invocation**: `open("file.txt", O_RDONLY)` is a C function that sets `%rax` to a system call number and triggers the system call exception handler via the `syscall` assembly operation.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Side Channels, Spectre
+parent: notes
+nav_order: 14
+---
+# Side Channels, Spectre
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/spectre.pdf
 ##### Side Channels

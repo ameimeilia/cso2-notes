@@ -1,3 +1,10 @@
+---
+layout: default
+title: Security
+parent: readings
+nav_order: 13
+---
+# Security
 ## 1 Four useful tools
 
 ### 1.1 Hashes

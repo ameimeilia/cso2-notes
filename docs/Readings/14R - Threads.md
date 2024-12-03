@@ -1,3 +1,10 @@
+---
+layout: default
+title: Threads
+parent: readings
+nav_order: 10
+---
+# Threads
 ### Managing Thread Existence
 - every process has at least one thread, the main thread
 - each other thread is created by invoking a system call

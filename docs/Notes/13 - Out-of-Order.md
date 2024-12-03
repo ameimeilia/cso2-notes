@@ -1,3 +1,10 @@
+---
+layout: default
+title: Out-of-Order
+parent: notes
+nav_order: 13
+---
+# Out-of-Order
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf
 ##### Instruction Queue and Dispatch

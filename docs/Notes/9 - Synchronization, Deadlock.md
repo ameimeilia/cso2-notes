@@ -1,3 +1,10 @@
+---
+layout: default
+title: Synchronization, Deadlock
+parent: notes
+nav_order: 9
+---
+# Synchronization, Deadlock
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf
 ##### Atomic Operation

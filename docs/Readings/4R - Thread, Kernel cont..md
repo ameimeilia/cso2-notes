@@ -1,3 +1,10 @@
+---
+layout: default
+title: Thread, Kernel cont.
+parent: readings
+nav_order: 5
+---
+# Thread, Kernel cont.
 ### Thread
 #### 1.1 Multitasking
 - **Multitasking**: Running multiple flows of code concurrently.

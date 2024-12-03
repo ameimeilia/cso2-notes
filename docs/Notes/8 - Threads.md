@@ -1,3 +1,10 @@
+---
+layout: default
+title: Threads
+parent: notes
+nav_order: 8
+---
+# Threads
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf
 ##### Why Threads?

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Privilege, Exceptions
+parent: notes
+nav_order: 3
+---
+# Privilege, Exceptions
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 ##### Kernel Mode

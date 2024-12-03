@@ -1,3 +1,10 @@
+---
+layout: default
+title: Sync, Deadlock
+parent: readings
+nav_order: 11
+---
+# Sync, Deadlock
 ## Synchronization Primitives
 ### Atomic Operation
 - action(s) appears to execute in a single step without interference from other actions.

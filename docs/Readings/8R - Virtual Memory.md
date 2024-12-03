@@ -1,3 +1,10 @@
+---
+layout: default
+title: Virtual Memory
+parent: readings
+nav_order: 7
+---
+# Virtual Memory
 ### 1 Introduction
 Virtual memory provides key functions for hardware and operating system collaboration:
 - Gives each process the illusion it is the only one in memory.

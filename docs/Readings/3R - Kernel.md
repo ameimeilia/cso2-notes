@@ -1,3 +1,10 @@
+---
+layout: default
+title: Kernel
+parent: readings
+nav_order: 4
+---
+# Kernel
 ### 1 Kernel Mode vs. User Mode
 #### 1.1 Definitions
 - **Kernel Mode**: The hardware allows full access to all operations. The code running in this mode is called the **kernel**.

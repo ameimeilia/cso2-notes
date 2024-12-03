@@ -1,3 +1,10 @@
+---
+layout: default
+title: Processes
+parent: notes
+nav_order: 5
+---
+# Processes
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf
 ##### POSIX Process Management

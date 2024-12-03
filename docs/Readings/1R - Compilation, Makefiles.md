@@ -1,3 +1,10 @@
+---
+layout: default
+title: Compilation, Makefiles
+parent: readings
+nav_order: 2
+---
+# Compilation, Makefiles
 ### 1 `clang`/`gcc` modes review
 
 | mode                               | action                                                                                                                                                                                                                |

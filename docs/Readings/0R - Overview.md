@@ -1,3 +1,10 @@
+---
+layout: default
+title: Overview
+parent: readings
+nav_order: 1
+---
+# Overview
 ### Course Outline
 #### 1 Interrupts: safe communication with hardware
 - **interrupts**: incoming signal from wire → processor suspends current program and runs an interrupt handler in the OS

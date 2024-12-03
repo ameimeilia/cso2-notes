@@ -1,3 +1,10 @@
+---
+layout: default
+title: Processors
+parent: readings
+nav_order: 14
+---
+# Processors
 # 1 Organizing a processor
 
 A processor has a lot of parts and pieces. It can help keep them orderly if we break them into named components, similar to naming functions in C. There are various names used, but one common model is to consider five steps:
