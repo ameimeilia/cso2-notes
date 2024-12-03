@@ -12,5 +12,5 @@ math: katex
 
 callouts:
   highlight:
-    title: Highlight
+    title: 
     color: yellow
