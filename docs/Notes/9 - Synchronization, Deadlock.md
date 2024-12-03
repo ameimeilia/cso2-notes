@@ -7,7 +7,7 @@ nav_order: 9
 # Synchronization, Deadlock
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf
-##### Atomic Operation
+## Atomic Operation
 - operation that runs to completion or not at all
 - most machines: loading/storing (aligned) values is atomic:
 	- ex. can’t get x = 3 from x ← 1 and x ← 2 running in parallel
@@ -20,7 +20,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://w
 - assume load/stores of ‘words’
 - processor designer will specify what is atomic
 - if not specified, not assume atomic
-##### Thinking about Race Conditions
+## Thinking about Race Conditions
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-27 at 6.28.46 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
@@ -34,11 +34,11 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://w
 </div>
 - occurs on multiple cores since `add` is implemented with multiple steps (load, add, store internally)
 - can be interleaved with what other cores do
-##### Compilers Move Loads/Stores
+## Compilers Move Loads/Stores
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-24 at 2.11.26 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### `pthreads` and reordering
+## `pthreads` and reordering
 - many pthreads functions **prevent reordering**
 	- everything before function call actually happens before
 - includes **preventing some optimizations**
@@ -47,11 +47,11 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://w
 **implementations**:
 1. prevent compiler reordering
 2. use special instructions, ex. x86 `mfence` “memory fence” instruction
-##### Definitions
+## Definitions
 - **mutual exclusion**: ensuring only one thread does a particular thing at a time
 - **critical section**: code that exactly one thread can execute at a time
 - **lock**: object only one thread can hold at a time
-##### The Lock Primitive
+## The Lock Primitive
 - locks: an object with (at least) two operations:
 	1. *acquire* or *lock*: **wait** until lock is free, then “grab” it
 	2. *release* or *unlock*: let others use lock
@@ -59,13 +59,16 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://w
 - ideal wait: not using processor, OS can context switch to other programs
 
 *example*
+
 ```C
 Lock(account_lock);
 balance += ...;
 Unlock(account_lock);
 ```
-##### `pthread mutex`
+
+## `pthread mutex`
 - rule: unlock from same thread you lock in
+
 ```C
 #include <pthread.h>
 
@@ -81,10 +84,12 @@ pthread_mutex_unlock(&account_lock);
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-24 at 2.41.30 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Deadlock Examples
+
+## Deadlock Examples
 *example - moving two files*
 - Thread 1: MoveFile(A, B, “foo”)
 - Thread 2: MoveFile(B, A, “bar”)
+
 ```C
 struct Dir { 
 	mutex_t lock; HashMap entries; 
@@ -116,7 +121,8 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-24 at 2.54.18 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Deadlock
+
+## Deadlock
 - circular waiting for **resources**
 - often non-deterministic in practice
 - most common example: **when acquiring multiple locks**
@@ -131,7 +137,8 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-24 at 3.09.53 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Deadlock Prevention Techniques
+
+## Deadlock Prevention Techniques
 1. **infinite resources**: no mutual exclusion
 2. **no shared resources**: no mutual exclusion
 3. **no waiting**: no hold and wait/preemption
@@ -140,6 +147,7 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 5. request **all resources at once**: no hold and wait
 
 **Acquiring Locks in Consistent Order**
+
 ```C
 MoveFile(Dir* from_dir, Dir* to_dir, string filename) {
 	if (from_dir−>path < to_dir−>path) { 
@@ -152,12 +160,15 @@ MoveFile(Dir* from_dir, Dir* to_dir, string filename) {
 	...
 }
 ```
-##### Barriers
+
+## Barriers
 - wait for all computations to finish
+
 ```C
 barrier.Initialize(NumberOfThreads)
 barrier.Wait()    // return after all threads have waited
 ```
+
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-05 at 10.42.18 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
@@ -169,6 +180,7 @@ barrier.Wait()    // return after all threads have waited
 </div>
 
 **`pthread` barriers**
+
 ```C
 pthread_barrier_t barrier;
 pthread_barrier_init(
@@ -185,7 +197,8 @@ pthread_barrier_wait(&barrier);
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-29 at 2.18.32 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Monitors/Condition Variables
+
+## Monitors/Condition Variables
 - **locks** for mutual exclusion
 - **condition variables** for waiting for event
 	- represents **list of waiting threads**
@@ -213,7 +226,8 @@ pthread_barrier_wait(&barrier);
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-29 at 2.31.00 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### `pthread` cv usage
+
+## `pthread` cv usage
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-05 at 11.00.36 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
@@ -229,18 +243,22 @@ pthread_barrier_wait(&barrier);
 </div>
 
 **Why Use a `while` loop?**
+
 ```C
 while (!finished) {
 	pthread_cond_Wait(&finished_cv, &lock);
 }
 ```
+
 - `pthread_cond_wait` might have “spurious wakeups”: when `wait` returns even though nothing happened
-##### Hoare vs Mesa Monitors
+
+## Hoare vs Mesa Monitors
 - **Hoare-style Monitors**: the signal “hands off” the lock to the awoken thread
 - **Mesa-style Monitors**: any eligible thread gets the lock next
 - current threading libraries use Mesa-style
 - another reason why the `while` loop is necessary
-##### Producer/Consumer
+
+## Producer/Consumer
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-29 at 2.38.47 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
@@ -272,7 +290,9 @@ while (!finished) {
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-05 at 11.41.52 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Monitor Pattern
+
+## Monitor Pattern
+
 ```C
 pthread_mutex_t mutex;
 pthread_cond_t cv;
@@ -320,7 +340,8 @@ pthread_mutex_destroy(&mutex);
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-05 at 11.58.00 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Generalizing Locks: Semaphores
+
+## Generalizing Locks: Semaphores
 - has a non-negative integer **value** and two operations:
 	1. **P()** or **down** or **wait**: wait for semaphore to become positive (>0), then decrement by 1
 	2. **V()** or **up** or **signal** or **post**: increment semaphore by 1 (waking up thread if needed)
@@ -328,6 +349,7 @@ pthread_mutex_destroy(&mutex);
 - **never negative**: wait instead
 
 *example - reserving books*
+
 ```C
 Semaphore free_copies = Semaphore(3)
 void ReserveBook() {
@@ -342,7 +364,8 @@ void ReturnBook() {
 	// ... then wake up waiting thread
 }
 ```
-##### Modifying Cache Blocks in Parallel
+
+## Modifying Cache Blocks in Parallel
 - typically caches only allow modifications to different parts of one cache block to happen one at a time:
 	1. processor “locks” 64-bytes cache block, fetching latest version
 	2. processor updates 4 bytes of 64-byte cache block
@@ -356,7 +379,8 @@ void ReturnBook() {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-06 at 12.07.18 AM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### False Sharing
+
+## False Sharing
 - two things that are actually independent but accesses get synchronized
 - solution: separate them
 
@@ -364,11 +388,13 @@ void ReturnBook() {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-06 at 12.12.30 AM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Transactions
+
+## Transactions
 - set of operations that occur atomically
 - idea:
 	- something higher-level handles locking
 	- library/database/etc. makes “transaction” happen all at once
+
 ```C
 BeginTransaction();
 int FromOldBalance = GetBalance(FromAccount);
@@ -380,7 +406,8 @@ EndTransaction();
 
 - **Consistency**: locking to make sure no other operations interfere
 - **Durability**: making sure on crash, no partial transaction occurs
-##### Implementing Consistency
+
+## Implementing Consistency
 **Simple**
 - only run one transaction at a time
 - only one lock that each transaction holds for the duration of the transaction

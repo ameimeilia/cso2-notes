@@ -7,7 +7,7 @@ nav_order: 5
 # Processes
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf
-##### POSIX Process Management
+## POSIX Process Management
 essential operations:
 1. `getpid`: process information
 2. `fork`: process creation
@@ -30,7 +30,7 @@ essential operations:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-22 at 11.30.08 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### `fork`
+## `fork`
 *example - outputs depend on timing*
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 2.27.27 PM.png | relative_url }}" alt="Screenshot" width="500">
@@ -40,7 +40,7 @@ essential operations:
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 2.30.11 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### `exec`
+## `exec`
 - `exec*`: replaces current program with new program
 	- `*`: multiple variants
 	- same pid, new process image
@@ -57,12 +57,12 @@ essential operations:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-22 at 3.13.10 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Why `fork/exec`?
+## Why `fork/exec`?
 - alternative: only have one function to spawn a new program:
 	- Windows `CreateProcess()`; POSIX’s `posix_spawn`
 - API needs to be more complicated to set new program state
 - OS is simpler, doesn’t need intermediate child step
-##### `wait/waitpid`
+## `wait/waitpid`
 - `pid_t waitpid(pid_t pid, int * status, int options)`
 - waits for a child process (with pid=`pid`) to finish
 - sets `*status` to its “status information”
@@ -90,7 +90,7 @@ essential operations:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-22 at 4.01.04 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### POSIX command-line features
+## POSIX command-line features
 - searching for programs uses the `PATH` variable → `/bin`, `/usr/bin`, `.`
 	- `ls -l` → `/bin/ls -l`
 	- `make` → `/usr/bin/make`
@@ -101,8 +101,10 @@ essential operations:
 	- `./someprogram <input.txt`
 - pipelines: pass output to another program/utility
 	- `./someprogram | ./somefilter`
-##### File Descriptors
+
+## File Descriptors
 - fork copies open file list, exec preserves open files
+
 ```C
 // process table
 struct process_info {
@@ -130,7 +132,7 @@ process->files[file_descriptor]
 - closes the file descriptor, deallocating the array index
 - does not affect other file descriptors that point to the same object
 - resources deallocated when the last file descriptor for an open file is closed
-##### Redirecting with `exec`
+## Redirecting with `exec`
 - perform redirection after forking
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 4.32.49 PM.png | relative_url }}" alt="Screenshot" width="500">
@@ -146,18 +148,22 @@ redirection: `./program >output.txt`
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-22 at 8.09.46 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### open/dup/close/etc. and fd array
+
+## open/dup/close/etc. and fd array
+
 ```C
 struct process_info {
 	...
 	struct open_file_description *files[NUM];
 };
 ```
+
 - open: `files[new_fd] = ...;`
 - dup2(from, to): `files[to] = files[from];`
 - close: `files[fd] = NULL;`
 - fork: `for (int i = ...) { child->files[i] = parent->files[i]; }`
-##### pipes
+
+## pipes
 - `pipe()` system call allocates a buffer in the kernel that allows for read/write
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 9.09.12 PM.png | relative_url }}" alt="Screenshot" width="300">
@@ -176,13 +182,15 @@ struct process_info {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 9.30.39 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### The Status
+
+## The Status
 - status code encodes both return value and if exit was abnormal
 - `W*` macros to decode it
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 2.19.55 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Open Files and File Descriptors
+
+## Open Files and File Descriptors
 - when a process is forked, it inherits the parent’s file descriptors
 	- preserved across exec()
 	- point to the same slot in the system open file table
@@ -191,6 +199,7 @@ struct process_info {
 	- if parent opens file X, then child opens file X, the resulting fds are not shared
 
 *example - unshared seek pointers*
+
 ```C
 // if "foo.txt" contains "AB"
 int fd1 = open("foo.txt", O_RDONLY);
@@ -203,6 +212,7 @@ read(fd2, &d, 1);
 ```
 
 *example - shared seek pointers*
+
 ```C
 // if "foo.txt" contains "AB"
 int fd1 = open("foo.txt", O_RDONLY);
@@ -215,6 +225,7 @@ read(fd2, &d, 1);
 ```
 
 *example - shared seek pointers 2*
+
 ```C
 // if "foo.txt" contains "AB"
 int fd1 = open("foo.txt", O_RDONLY);

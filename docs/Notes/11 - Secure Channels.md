@@ -7,7 +7,7 @@ nav_order: 11
 # Secure Channels
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
-##### Secure Communication Context
+## Secure Communication Context
 - communication on a network between **principals** (people/servers/programs)
 
 **Running Example: A to B**
@@ -22,7 +22,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 3. repudiation: if A sends message to B, B can’t prove to C it came from A
 4. forward-secrecy: if A gets compromised, E can’t use that to decode past conversations with B
 5. anonymity: A can talk to B without knowing who it is
-##### Symmetric Encryption
+## Symmetric Encryption
 - two functions:
 	1. encrypt: `E(key, message) = ciphertext`
 	2. decrypt: `D(key, ciphertext) = message`
@@ -40,7 +40,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 - symmetric encryption provides confidentiality but **not authenticity**
 - an active attacker M can *selectively* manipulate the encrypted message
 - attacker can flip bits to change messages, shorten messages, corrupt selected parts messages
-##### Message Authentication Codes (MACs)
+## Message Authentication Codes (MACs)
 - goal: use shared secret *key* to verify message origin
 - `MAC(key, message) = tag
 - knowing `MAC`, the message, and the tag, it should be hard to:
@@ -69,7 +69,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-10 at 1.45.53 AM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Asymmetric Encryption
+## Asymmetric Encryption
 - two functions:
 	1. public encrypt: `PE(public_key, message) = ciphertext`
 	2. public decrypt: `PD(private_key, ciphertext) = message`
@@ -102,7 +102,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 - one key per (recipient + sender)
 - secret key kept by recipient + sender
 - if you can encrypt, you can decrypt
-##### Digital Signatures
+## Digital Signatures
 - pair of functions:
 	1. sign: `S(private_key, message = signature`
 	2. verify: `V(public_key, signature, message) = 1`
@@ -115,14 +115,14 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 3. A computes `S(private_key, message) = signature`
 4. A sends the `message` and the `signature` to B
 5. B computes `V(public_key, message, signature) = 1`
-##### Replay Attacks
+## Replay Attacks
 - attacker can copy/paste an earlier message with the same signature
 - solution: add context with **nonces** (number used once)
 - generate random/unique number where each subsequent message uses the number from the previous message → protects against changing numbers
 - also include context about **who is sending**, either:
 	- include who is sending + other context so message can’t be reused
 	- use unique set of keys for each principal
-##### Other Attacks
+## Other Attacks
 **TLS State Machine Attack**
 - protocol
 	1. verify server identity
@@ -137,7 +137,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 	3. to add devices, client can forward other devices’ public keys
 - bugs
 	- when receiving new keys, clients did not check who they were forwarded from
-##### Certificates
+## Certificates
 1. A has B’s public key
 2. C wants B’s public key and knows A’s
 3. A can generate a certificate for B
@@ -176,7 +176,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 	- keep private keys in tamper-resistant hardware
 	- maintain publicly-accessible database of revoked certificates
 	- maintain certificate transparency: must keep public logs of every certificate issued
-##### Cryptographic Hash Functions
+## Cryptographic Hash Functions
 - `hash(M) = X`
 - given `X`: hard to find message other than by guessing
 - given `X`, `M`: hard to find second message `M2` so that `hash(M2) = X`
@@ -190,7 +190,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 	- attacker who gets hash doesn’t get password
 	- can still check if entered password is correct
 - use slow/resource-intensive cryptographic hash functions to slow down guessing
-##### “Secure” Random Numbers
+## “Secure” Random Numbers
 - properties:
 	- attack cannot guess number better than chance
 	- knowing prior “random” numbers shouldn’t help predict next “random” numbers
@@ -210,13 +210,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 	- to extract value:
 		- random bytes ← SecureHash(1 + state), give bytes that can’t be reversed to compute state
 		- state ← SecureHash(2 + state), change state so can’t return to old state if compromised
-##### Using Symmetric Encryption
+## Using Symmetric Encryption
 - symmetric encryption is much faster and better at supporting larger messages
 - real protocols use both asymmetric and symmetric encryption
 	- use asymmetric as little as possible
 	- use symmetric for everything else
 - **hybrid encryption**: use asymmetric encryption to setup symmetric encryption
-##### Key Agreement
+## Key Agreement
 - A has B’s public encryption key, want to choose shared secret
 
 1. both sides generate random values (similar to private key)
@@ -230,7 +230,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 4. B send public value derived from Z (“key share”)
 5. A combines Y with public value from B to get number
 6. B combines Z with public value from A to get number
-##### Typical TLS Handshake
+## Typical TLS Handshake
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-16 at 4.36.42 PM.png | relative_url }}" alt="Screenshot">
 </div>

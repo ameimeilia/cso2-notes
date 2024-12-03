@@ -7,7 +7,7 @@ nav_order: 10
 # Networking
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
-##### Networks Review
+## Networks Review
 **Mailbox Abstraction**
 - send/receive messages
 <div style="text-align: center;">
@@ -21,12 +21,12 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-06 at 5.38.59 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Layers
+## Layers
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-06 at 5.42.28 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
 - application layer is built atop the transport layer which is built atop the network layer…
-##### Network Limitations/Failures
+## Network Limitations/Failures
 - messages can be:
 	- lost
 	- delayed/reordered
@@ -75,13 +75,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - when receiving, recompute hash and check if match
 - no match = message lost
 - hashes are commonly called **checksums**
-##### 4+ Layers
+## 4+ Layers
 - often there are more layers above the “application” layer in inconsistent way
 - eg.
 	- HTTPS on TLS on TCP…
 	- DNS on HTTPS on TLS on TCP…
 	- SFTP on SSH on TCP…
-##### Names and Addresses
+## Names and Addresses
 - used to specify machine
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-09 at 8.48.13 PM.png | relative_url }}" alt="Screenshot">
@@ -91,7 +91,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-09 at 8.57.41 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### The Network Layer
+## The Network Layer
 - Internet Protocol (IP) v4 or v6 in common use today
 
 **IPv4**
@@ -107,7 +107,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - written in hex, 16-bit parts, separated by colons
 - strings of 0s represented by double-colons
 - typically given in blocks of $2^{80}$ or $2^{64}$ addresses
-##### IPv4 Addresses and Routing Tables
+## IPv4 Addresses and Routing Tables
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-09 at 9.15.08 PM.png | relative_url }}" alt="Screenshot" width="450">
 </div>
@@ -122,14 +122,14 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - `169.254.0.0 - 169.254.255.255`
 	- link-local addresses
 	- never forwarded by routers
-##### Port Numbers in the Transport Layer
+## Port Numbers in the Transport Layer
 - used to identify individual programs/connections
 - 16-bit port numbers
 - `0 - 49151`: typically assigned for particular services
 	- `80` = HTTP, `443` = HTTPS, `22` = SSH
 - `49152 - 65535`: allocated on demand
 	- default “return address” for client connecting to server
-##### User Datagram Protocol (UDP) vs Transmission Control Protocol (TCP)
+## User Datagram Protocol (UDP) vs Transmission Control Protocol (TCP)
 **TCP**: reliability/streams to other program
 - **reliable** transmission of **as much data as you want**
 - “connecting” fails if server not responding
@@ -141,7 +141,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - “connecting” just sets default destination
 - `write(fd, "a", 1); write(fd, "b", 1)` not equal to `write(fd, "ab", 2)`
 - can send/receive multiple programs with one socket
-##### Connections
+## Connections
 **Connections in TCP/IP**
 - connection identified by 5-tuple:
 	- protocol=TCP/UDP, local IP address, local port, remote IP address, remote port
@@ -158,13 +158,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-09 at 9.52.00 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### DNS: Distributed Database
+## DNS: Distributed Database
 - domain name system
 - links addresses with names
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-09 at 10.04.42 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### URL/URIs
+## URL/URIs
 - Uniform Resource Locators (URL)
 	- tells how to find “resource” on network
 	- uniform: one syntax for identifying resources
@@ -184,7 +184,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - `https://kytos02.cs.virginia.edu:443/cs3130-spring2023/quizzes/quiz.php?qid=02#q2`
 - `//www.cs.virginia.edu/~cr4bd/3130/S2023`: scheme implied from context
 - `/~cr4bd/3130/S2023`: scheme/host implied from context
-##### Auto-configuration
+## Auto-configuration
 - often the local router machine runs a service to assign IP addresses to a machine
 - the local router:
 	- knows which IP addresses are available
@@ -196,7 +196,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 	2. contacts everyone on the local network
 	3. local server is configured to reply to the request with an address + **time limit**
 	4. later: can send messages to local server to renew/give up address
-##### Network Address Translation
+## Network Address Translation
 - IPv4 address are scarce → convert many private address to one public address
 - outside POV: several machines share one public IP address
 - inside POV: machines have different IP on private network

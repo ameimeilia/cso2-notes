@@ -7,7 +7,7 @@ nav_order: 4
 # Signals
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
-##### Signals
+## Signals
 - Unix-like operating system feature
 - similar to exceptions, but for processes
 - can be triggered by external processes
@@ -41,7 +41,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-10 at 3.10.34 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Signal API
+## Signal API
 1. `sigaction`: register handler for signal
 2. `kill`: sends signal to process using process ID
 3. `pause`: put process to sleep until signal received
@@ -49,6 +49,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
 
 **`kill` Command**
 - calls the `kill()` function
+
 ```shell
 # sends SIGTERM (terminate)to PID 1234
 kill 1234
@@ -68,8 +69,9 @@ kill -USR1 1234
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-18 at 12.04.01 AM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Signal Handler Unsafety
+## Signal Handler Unsafety
 *example*
+
 ```C
 void foo() {
 	/* SIGINT might happen while foo() is running */
@@ -86,7 +88,7 @@ void handle_signint(){
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-18 at 10.08.11 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Signal Handler Safety
+## Signal Handler Safety
 - POSIX defines “async-signal-safe” functions
 - work correctly no matter what the function interrupts
 - includes: `write`, `_exit`, `kill`

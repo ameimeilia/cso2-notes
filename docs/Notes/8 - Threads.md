@@ -7,14 +7,16 @@ nav_order: 8
 # Threads
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf
-##### Why Threads?
+## Why Threads?
 1. **concurrency**: one thread for each different thing happening at the same time
 2. **parallelism**: do same thing with more resources
-##### Single and Multithread Processes
+## Single and Multithread Processes
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 3.09.54 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### `pthread_create`
+
+## `pthread_create`
+
 ```C
 void *ComputerPi(void *argument) { ... }
 void *PrintClassList(void *argument) { ... }
@@ -36,9 +38,11 @@ int main() {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-21 at 11.15.42 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### A Threading Race
+
+## A Threading Race
 - non-deterministic behavior when working with threads → race conditions
 *example - output `in the thread` ~ 4% of the time*
+
 ```C
 #include <pthread.h>
 #include <stdio.h>
@@ -58,11 +62,13 @@ int main() {
 ```
 
 **Solutions**
+
 ```C
 printf("Done starting thread\n");
 pthread_join(the_thread, NULL); // wait for thread
 return 0;
 ```
+
 - `R = pthread_join(X, &P)`: wait for thread `X`, copies return values into `P`
 - like `waitpid`, but for a thread
 - thread return value is pointer to anything
@@ -72,18 +78,21 @@ return 0;
 printf("Done starting thread\n");
 pthread_exit(NULL);
 ```
+
 - exit current thread, returning a value
 - like `exit` or returning from main, but for a single thread
 - same effect as returning from function passed to `pthread_create`
 
 **Error Checking `pthread_create`**
+
 ```C
 int error = pthread_create(...);
 if (error != 0) {
 	/* print some error message */
 }
 ```
-##### Thread Example
+
+## Thread Example
 *example - sum, only globals*
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 10.02.27 PM.png | relative_url }}" alt="Screenshot">
@@ -98,7 +107,8 @@ if (error != 0) {
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 10.07.53 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Thread Example
+
+## Thread Example
 *example - sum, info struct*
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-27 at 6.00.01 PM.png | relative_url }}" alt="Screenshot">
@@ -122,7 +132,9 @@ if (error != 0) {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-22 at 2.31.11 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Returning from Threads
+
+## Returning from Threads
+
 ```C
 /* omitted: headers */
 void *create_string(void *ignored_argument) {
@@ -142,7 +154,8 @@ int main() {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-22 at 2.35.34 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Thread Joining
+
+## Thread Joining
 - `pthread_join` allows collecting thread return value
 - if you don’t join joinable thread → **memory leak**
 - to avoid memory leak: always join, or “detach” thread to make it not joinable
@@ -150,6 +163,7 @@ int main() {
 **`pthread_detach`**
 - detach = don’t care about return value, etc.
 - system will deallocate when thread terminates
+
 ```C
 void *show_progress(void * ...) { ... }
 void spawn_show_progress_thread() {
@@ -168,6 +182,7 @@ int main() {
 ```
 
 **Starting Threads Detached**
+
 ```C
 void *show_progress(void * ...) { ... }
 void spawn_show_progress_thread() {
@@ -181,6 +196,7 @@ void spawn_show_progress_thread() {
 ```
 
 **Setting Stack Sizes**
+
 ```C
 void *show_progress(void * ...) { ... }
 void spawn_show_progress_thread() {

@@ -7,20 +7,22 @@ nav_order: 2
 # Accounts
 {: .highlight }
 Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf
-##### POSIX User IDs and Groups
+
+## POSIX User IDs and Groups
 **User IDs**
 - every process has a user ID that is used to decide what the process is authorized to do
 - `uid_t geteuid();` gets the current process’s “effective” user ID, used for all permission checks
 - effective user ID is a unique number that the kernel knows
 
 **Groups**
+
 ``` shell
 gid_t getegid(void);   # process's "effective" group ID
 
 int getgroups(int size, gid_t list[])   # process's extra group IDs
 ```
 
-##### POSIX File Permissions and Encoding
+## POSIX File Permissions and Encoding
 - POSIX files have a very restricted access control list:
 	1. one user ID: read/write/execute bits for user, “owner” that can also change permissions
 	2. one group ID: read/write/execute bits for group
@@ -33,12 +35,14 @@ int getgroups(int size, gid_t list[])   # process's extra group IDs
 - for directories: read = `ls`, write = add and remove files, execute = `cd`
 
 *example*
+
 ```
 700 -> 111, 000, 000: user can rwx, group none, other none
 451 -> 100, 101, 001: user can r, group can rx, other x
 ```
 
 **Setting Permissions**
+
 ```shell
 chmod 700 file
 
@@ -48,6 +52,7 @@ chmod u=rwx, og=  file
 ```
 
 **Adding Permissions**
+
 ```shell
 # add user read and execute
 chmod u+rx foo
@@ -56,7 +61,7 @@ chmod u+rx foo
 chmod o-rwx, u=rx foo
 ```
 
-##### POSIX/NTFS ACLs
+## POSIX/NTFS ACLs
 - more flexible access control lists
 
 **POSIX ACL Syntax**
@@ -66,6 +71,7 @@ chmod o-rwx, u=rx foo
 </div>
 
 **POSIX ACLs on command line**
+
 ```shell
 # would see something similar to example above
 getfacl file
@@ -83,7 +89,7 @@ setfacl -M acl.txt file
 setfacl -X acl.txt file
 ```
 
-##### Authorization Checking on Unix
+## Authorization Checking on Unix
 - handler for system calls checks permissions for:
 	1. files (open, rename, etc): file/directory permissions include UID or GIDprocesses (kill, etc): process UID = user UID
 
@@ -99,7 +105,8 @@ setfacl -X acl.txt file
 	2. user mode (everything else)
 - superusers are sill in user mode
 - superuser : OS as kernel mode : hardware
-##### Login Process
+
+## Login Process
 1. check if password is correct
 2. change user ID
 3. runs shell
@@ -117,7 +124,8 @@ setfacl -X acl.txt file
 - if superuser: sets effective UID to value passed in
 - system starts in/login programs run as superuser
 - login program “gives up” special access
-##### `sudo`
+
+## `sudo`
 - allows system administrator to configure superuser permissions to certain users for certain commands in the `sudoers` file
 
 **set-user-ID sudo**

@@ -7,25 +7,25 @@ nav_order: 6
 # Virtual Memory
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
-##### Address Translation
+## Address Translation
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 3.00.13 PM.png | relative_url }}" alt="Screenshot" width="600">
 </div>
-##### Toy Program Memory
+## Toy Program Memory
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 2.37.07 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 2.41.58 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Toy Page Table Lookup
+## Toy Page Table Lookup
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-24 at 2.47.04 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Virtual Address Sizes
+## Virtual Address Sizes
 - virtual address sizes are not always the size of pointers, sometimes part of the pointer is not used
 - virtual address size is amount actually used for mapping
-##### Address Space Size
+## Address Space Size
 - amount that can be addressed, based on number of unique addresses
 - eg. 32-bit virtual address = $2^{32}$ byte virtual address space
 - eg. 20-bit physical address = $2^{20}$ byte physical address space
@@ -39,12 +39,12 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-24 at 3.29.25 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Permission Bits
+## Permission Bits
 - additional bits in page table entry that define:
 	- user mode access
 	- read, write, execute permissions
 - checked by hardware, like the valid bit
-##### Space on Demand
+## Space on Demand
 - allocate space for the stack only when needed
 - space doesn’t need to be initially empty
 - only change: load form file, etc. instead of allocating empty page
@@ -60,12 +60,12 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
 3. OS looks up what should be there: stack
 4. exception handler: OS allocates more stack space
 5. OS updates the page table then returns to retry the instruction
-##### Extra Sharing
+## Extra Sharing
 - sharing writable data is ok until either process modifies it
 - ex. default value of global variables might not change
 - use the page table to indicate to the CPI that some shared part is read-only
 - processor will trigger a fault when it’s written
-##### Copy-on-write and Page Tables
+## Copy-on-write and Page Tables
 1. copy process duplicates page table
 2. both processes share all physical pages, both are marked as read-only
 3. page fault is triggered when either process tries to write to a read-only page
@@ -79,8 +79,10 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-26 at 2.41.31 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### `mmap`
+
+## `mmap`
 - function to “map”/link a file to memory
+
 ```C
 int file = open("somefile.dat", O_RDWR);
 // data is region of memory that represents file
@@ -103,7 +105,7 @@ data[100] = 'x';
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-30 at 1.38.26 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Page Tricks Generally
+## Page Tricks Generally
 - deliberately **make program trigger page/protection fault**
 - but **don’t assume page/protection fault is an error**
 - have **separate data structures** represent logically allocated memory
@@ -122,7 +124,7 @@ tricks:
 - information about the address causing the fault (e.g. special register with memory address accessed)
 - (by default) rerun faulting instruction when returning from exception
 - precise exceptions: no side effects from faulting instruction or after (e.g. pushq that caused fault did not change %rsp before fault)
-##### Page Tables in Memory
+## Page Tables in Memory
 - page tables have to be encoded into memory
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-26 at 3.07.18 PM.png | relative_url }}" alt="Screenshot">
@@ -142,14 +144,18 @@ tricks:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-01 at 2.10.26 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### `translate()`
+
+## `translate()`
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-05 at 5.46.22 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### `page_allocate()`
+
+## `page_allocate()`
 - allocates a page table with a valid entry for arg, then make all other entries invalid
 - if the page table is already allocated, simply add the valid entry
-##### `posix_memalign`
+
+## `posix_memalign`
+
 ```C
 void *result;
 error_code = posix_memalign(&result, alingment, size);
@@ -158,10 +164,12 @@ error_code = posix_memalign(&result, alingment, size);
 - chooses address that is multiple of `alignment`
 - `error_code` indicates if out-of-memory, etc.
 - fills in `result`
-##### Two-level Page Tables
+
+## Two-level Page Tables
 - lookup implemented in hardware → must be simple → split up address bits
 - should not involve many memory accesses → tree with many children from each node
-##### Two-level Page Table Lookup
+
+## Two-level Page Table Lookup
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-01 at 3.56.36 PM.png | relative_url }}" alt="Screenshot">
 </div>
@@ -170,12 +178,14 @@ error_code = posix_memalign(&result, alingment, size);
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-01 at 3.56.51 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Multi-level Page Tables
+
+## Multi-level Page Tables
 - VPN split into pieces for each level of page table
 - top levels: page table entries point to next page table
 - bottom level: page table entry points to destination page
 - validity checks at *each level*
-##### 2-level Splitting
+
+## 2-level Splitting
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-01 at 3.49.28 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>

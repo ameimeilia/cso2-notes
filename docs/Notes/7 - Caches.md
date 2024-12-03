@@ -7,11 +7,12 @@ nav_order: 7
 # Caches
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf
-##### Memory Hierarchy Assumptions
+## Memory Hierarchy Assumptions
 - **temporal locality**: caches should keep *recently accessed values*
 - **spatial locality**: caches should *store adjacent values at the same time*
 
 *example - locality*
+
 ```C
 double computeMean(int length, double *values) {
 	double total = 0.0;
@@ -23,7 +24,7 @@ double computeMean(int length, double *values) {
 ```
 - temporal locality: machine code of loop; `total`, `i`, `length` accessed repeatedly
 - spatial locality: machine code of most consecutive instructions; `values[i]` and `values[i+1]` accessed
-##### Split Caches; Multiple Cores
+## Split Caches; Multiple Cores
 - typically separate data and instruction caches for L1
 - (almost) never going to read instructions as data or vice-versa
 - can optimize instruction cache for different access pattern
@@ -31,15 +32,15 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-03 at 2.40.57 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### One-block Cache
+## One-block Cache
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-03 at 2.51.27 PM.png | relative_url }}" alt="Screenshot" width="450">
 </div>
-##### Direct-mapped Cache
+## Direct-mapped Cache
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-03 at 3.36.06 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Tag-Index-Offset (TIO)
+## Tag-Index-Offset (TIO)
 - depends on cache design
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-03 at 3.27.41 PM.png | relative_url }}" alt="Screenshot" width="500">
@@ -55,7 +56,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-03 at 3.16.44 PM.png | relative_url }}" alt="Screenshot" width="550">
 </div>
-##### Direct-mapped Caches
+## Direct-mapped Caches
 *example - access pattern*
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-13 at 9.36.59 PM.png | relative_url }}" alt="Screenshot">
@@ -68,7 +69,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-13 at 9.40.47 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Misses
+## Misses
 **Simulated Misses: BST Lookups**
 *simulated 16KB direct-mapped data cache; excluding BST setup*
 <div style="text-align: center">
@@ -92,7 +93,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-13 at 10.03.25 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Associativity
+## Associativity
 - multiple places to put values with the same index
 - avoid misses from two active values using same set (**conflict misses**)
 
@@ -135,8 +136,9 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-14 at 8.47.43 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
-##### Cache Accesses and C Code
+## Cache Accesses and C Code
 *exercise - what data cache accesses does this function do?*
+
 ```C
 int scaleFactor;
 
@@ -151,6 +153,7 @@ scaleByFactor:
 	imull %edi, %eax
 	ret
 ```
+
 1. M[scaleFactor address] → eax
 2. pop from stack for `ret`
 
@@ -163,7 +166,9 @@ scaleByFactor:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-14 at 9.02.48 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Exercise: C and Cache Misses
+
+## Exercise: C and Cache Misses
+
 ```C
 int array[4];
 ...
@@ -173,6 +178,7 @@ odd_sum += array[1];
 even_sum += array[2];
 odd_sum += array[3];
 ```
+
 - how many data cache misses on a 1-set direct-mapped cache with 8B blocks?
 
 **Possibilities**
@@ -189,7 +195,9 @@ odd_sum += array[3];
 - compilers and malloc/new implementations usually try to **align** values
 - align = make address be multiple of something
 - most important reason: don’t cross cache block boundaries
-##### Exercises: C and Cache Misses
+
+## Exercises: C and Cache Misses
+
 ```C
 int array[4];
 ...
@@ -199,6 +207,7 @@ odd_sum += array[2];
 even_sum += array[1];
 odd_sum += array[3];
 ```
+
 - assume `array[0]` at beginning of cache block
 - how many data cache misses on a 1-set direct-mapped cache with 8B blocks?
 
@@ -219,6 +228,7 @@ odd_sum += array[5];
 even_sum += array[6];
 odd_sum += array[7];
 ```
+
 - how many data cache misses on a **2-set** direct-mapped cache with 8B blocks?
 
 <div style="text-align: center">
@@ -240,6 +250,7 @@ odd_sum += array[3];
 even_sum += array[5];
 odd_sum += array[7];
 ```
+
 - how many data cache misses on a **2-set** direct-mapped cache with 8B blocks?
 
 <div style="text-align: center">
@@ -259,9 +270,12 @@ odd_sum += array[3]; // hit
 even_sum += array[511]; // miss -> at very last set
 odd_sum += array[513]; // miss
 ```
+
 - array[0] and array[512] are exactly 2KB apart
 - how many data cache misses on a 2KB direct mapped cache with 16B blocks?
-##### Misses with Skipping
+
+## Misses with Skipping
+
 ```C
 int array1[512]; int array2[512];
 ...
@@ -269,6 +283,7 @@ for (int i = 0; i < 512; i += 1){
 	sum += array1[i] * array2[i];
 }
 ```
+
 - about how many data cache misses on a 2KB direct-mapped cache with 16B cache blocks?
 - depends on relative placement of array1 and array2
 
@@ -288,11 +303,13 @@ for (int i = 0; i < 512; i += 1){
 - often sizeof(row) bytes apart
 - row size is multiple of # sets * bytes/block
 - **takeaway**: always access arrays in row major order
-##### Mapping of Sets to Memory (3-way)
+## Mapping of Sets to Memory (3-way)
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-14 at 11.44.43 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Exercise: C and Cache Misses (Assoc.)
+
+## Exercise: C and Cache Misses (Assoc.)
+
 ```C
 int array[1024];
 ...
@@ -306,6 +323,7 @@ odd_sum += array[3]; // hit
 even_sum += array[511]; // miss
 odd_sum += array[513]; // hit
 ```
+
 - observation: `array[0]`, `array[256]`, `array[512]`, `array[768]` are in the same set
 - how many data cache misses on a 2KB 2-way set associative cache with 16B blocks?
 
@@ -322,9 +340,11 @@ odd_sum += array[257]; // miss
 even_sum += array[513]; // miss
 odd_sum += array[769]; // miss
 ```
+
 - observation: `array[0]`, `array[256]`, `array[512]`, `array[768]` are in the same set
 - how many data cache misses on a 2KB 2-way set associative cache with 16B blocks?
-##### Simulated Misses
+
+## Simulated Misses
 **BST Lookups**
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-15 at 12.00.15 AM.png | relative_url }}" alt="Screenshot">
@@ -334,7 +354,8 @@ odd_sum += array[769]; // miss
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-15 at 12.00.43 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Handling Writes
+
+## Handling Writes
 two decision points:
 1. if the value is not in the cache, do we add it?
 	- yes: need to load rest of block (**write-allocate**)
@@ -342,7 +363,8 @@ two decision points:
 2. if the value is in the cache, when do we update next level?
 	- immediately: extra writing (**write-through**)
 	- later: need to remember to do so (**write-back**)
-##### Allocate on Write
+
+## Allocate on Write
 - processor writes less than whole cache block
 - block not yet in cache, 2 options:
 	1. **write-allocate**: fetch rest of cache block, replace written part (then follow write-through or write-back policy)
@@ -387,13 +409,15 @@ two decision points:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-15 at 12.56.15 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Fast Writes
+
+## Fast Writes
 - write appears to complete immediately when placed in buffer
 - memory can be much slower
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-15 at 12.59.43 AM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
-##### Cache Tradeoffs
+
+## Cache Tradeoffs
 - larger caches → slower hits
 - higher associativity → slower hits
 - lots of tradeoffs
@@ -403,7 +427,8 @@ two decision points:
 - details depend on programs run
 	- how often is the same block used again?
 	- how often is the same index bit used?
-##### Side Notes: Caches
+
+## Side Notes: Caches
 - most common processors use physical memory for caches
 
 - cache lookup with virtual addresses → aliasing among processes
@@ -411,13 +436,15 @@ two decision points:
 - solution: index using VA bits (index bits in the page offset)
 - do TLB lookup in parallel
 - tag check using PA bits
-##### Page Table Entry Cache
+
+## Page Table Entry Cache
 - called a **TLB** (translation lookaside buffer)
 - (usually very small) cache of page table entries
 - TLB output can be used directly to form address
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-21 at 1.57.47 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
+
 *VPN, PTE*
 - only caches the page table lookup itself
 - (generally) just entries from the **last-level page tables**
@@ -427,7 +454,8 @@ two decision points:
 - 0 offset bits
 *usually tens of entries*
 - few active page table entries at a time enables highly associative cache designs
-##### TLB and Two-level Lookup
+
+## TLB and Two-level Lookup
 **TLB Hit**
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 2.16.19 PM.png | relative_url }}" alt="Screenshot">
@@ -438,7 +466,8 @@ two decision points:
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 2.16.44 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### TLB Organization (2 way set associative)
+
+## TLB Organization (2 way set associative)
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-10-21 at 2.25.43 PM.png | relative_url }}" alt="Screenshot">
 </div>

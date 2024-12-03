@@ -7,7 +7,7 @@ nav_order: 3
 # Privilege, Exceptions
 {: .highlight }
 Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
-##### Kernel Mode
+## Kernel Mode
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-09 at 2.08.32 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
@@ -31,7 +31,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-09 at 2.19.52 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Linux x86-64 System Calls
+## Linux x86-64 System Calls
 - before `syscall`:
 	- `%rax` : system call number
 	- `%rdi, %rsi, %rdx, %r10, %r8, %r9`: args
@@ -68,7 +68,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-09 at 2.44.39 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Memory Protection
+## Memory Protection
 **Address Space**
 - programs have the illusion of their own memory → “virtual memory”
 - methods of mapping:
@@ -84,7 +84,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 </div>
 - Program A will always have the expected result
 - Program B might crash because the OS may not map program B addresses
-##### Exceptions
+## Exceptions
 - hardware calls OS specified routine
 	1. switch to kernel mode
 	2. call OS-designated function
@@ -114,7 +114,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-10 at 2.22.34 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
-##### Exception Patterns with I/O
+## Exception Patterns with I/O
 **Input**
 - *Case 1*: input available now
 	- exception: device provides input
@@ -137,7 +137,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 	- handler: OS realizes device can’t accept output yet
 	- exception: device ready for output
 	- handler: OS send output
-##### Threads and Processes
+## Threads and Processes
 **Threads**
 - illusion of own processor
 	- own register values
@@ -149,7 +149,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 	- thread = illusions of own CPU
 	- process could have multiple threads with independent registers
 	- address space = illusion of own memory
-##### Switching Programs
+## Switching Programs
 **Context Switching**: OS switches to another thread
 1. OS starts running (some sort of exception)
 2. save old registers + program counter + address mapping in individual process’s process control block (PCB)
@@ -157,7 +157,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-10 at 2.32.56 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Exceptions vs Context Switch
+## Exceptions vs Context Switch
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-10 at 2.59.40 PM.png | relative_url }}" alt="Screenshot">
 </div>

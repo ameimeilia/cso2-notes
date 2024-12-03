@@ -7,11 +7,11 @@ nav_order: 1
 # Building
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
-##### C/Pointer Review
+## C/Pointer Review
 <div style="text-align: center">
   <img src="{{ C+PointersReview | center | relative_url }}" alt="Screenshot">
 </div>
-##### Dynamic vs. Static Linking
+## Dynamic vs. Static Linking
 **Dynamic Linking**
 - fewer copies of std lib machine code on system
 - automatically get library changes
@@ -27,7 +27,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-09 at 12.23.21 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Static vs. Shared Libraries
+## Static vs. Shared Libraries
 **Static Libraries**
 - `lib[name].a`
 - internally: archive of `.io` files with index
@@ -47,13 +47,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-09-09 at 12.16.11 AM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Libraries and Command Line
+## Libraries and Command Line
 - linker processes files in order, put library at the end of the command
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-09 at 12.17.48 AM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
 
-##### make
+## make
 - runs commands based on what’s changed based on rules in `makefile`
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-08-29 at 3.14.46 PM.png | relative_url }}" alt="Screenshot" width="500">
@@ -78,6 +78,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 **Phony Targets**
 - common to have Makefile targets that aren’t files, or don’t build a file
 - `make all` and  `make clean` where
+
 ```shell
 clean:
 	rm --force main.p extra.o

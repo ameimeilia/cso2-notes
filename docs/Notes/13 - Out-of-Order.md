@@ -7,7 +7,7 @@ nav_order: 13
 # Out-of-Order
 {: .highlight }
 Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf
-##### Instruction Queue and Dispatch
+## Instruction Queue and Dispatch
 - iterate through instruction queue each cycle and determine which instructions can be run
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 9.19.18 PM.png | relative_url }}" alt="Screenshot">
@@ -18,7 +18,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 9.30.38 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Execution Units/Functional Units
+## Execution Units/Functional Units
 - where actual work of instruction is done, e.g. the actual ALU, or data cache
 - sometimes pipelined:
 <div style="text-align: center;">
@@ -34,11 +34,11 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-21 at 2.24.48 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Instruction Queue and Dispatch (multicycle)
+## Instruction Queue and Dispatch (multicycle)
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 9.53.30 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Register Renaming: Missing Pieces
+## Register Renaming: Missing Pieces
 - deal with “hidden” inputs such as `%rsp`, condition codes?
 - solution: translate to instructions with additional register parameters
 	- making `%rsp` explicit parameter
@@ -47,11 +47,11 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-21 at 2.32.41 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### OOO Limitations
+## OOO Limitations
 - can’t always find instructions to run
 - need to track all uncommitted instructions
 - branch misprediction has a big cost (relative to pipelined)
-##### Importance of Prediction
+## Importance of Prediction
 - predicting a jump is always not taken/stalling both result in 2 wasted cycles for each jump taken
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-25 at 10.03.02 PM.png | relative_url }}" alt="Screenshot" width="400">
@@ -61,7 +61,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-11-25 at 11.10.42 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
-##### Static Branch Prediction
+## Static Branch Prediction
 - forward not taken, backward taken
 - if the target of the jump is greater than the PC, assume the jump is not taken
 - if the target of the jump is less than the PC, assume the jump is taken
@@ -73,7 +73,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 10.27.33 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Collisions
+## Collisions
 - 2 branches could have same hashed PC
 - possible results:
 	1. both branches usually taken
@@ -96,14 +96,14 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://ww
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 10.50.59 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### 2-bit Saturating Counter
+## 2-bit Saturating Counter
 - track 2 bits to distinguish between cases:
 	1. jump is usually taken, but not taken last time
 	2. jump not taken the last several times
 <div style="text-align: center">
   <img src="{{ Screenshot 2024-11-25 at 10.53.41 PM.png | relative_url }}" alt="Screenshot">
 </div>
-##### Branch Target Buffer
+## Branch Target Buffer
 - cache for branch targets
 - necessary since branch predicting happens before decoding the instruction
 - used to:
