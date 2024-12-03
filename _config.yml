@@ -12,5 +12,4 @@ math: katex
 
 callouts:
   highlight:
-    title: 
-    color: yellow
+    color: purple
