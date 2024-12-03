@@ -6,7 +6,7 @@ nav_order: 13
 ---
 # Out-of-Order
 
-{: .highlight }
+{: .note }
 > Slides: [ooo](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf), [bpred](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf)
 
 ## Instruction Queue and Dispatch

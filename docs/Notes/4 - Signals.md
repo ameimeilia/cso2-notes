@@ -6,7 +6,7 @@ nav_order: 4
 ---
 # Signals
 
-{: .highlight }
+{: .note }
 > Slides: [signals](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf)
 
 ## Signals

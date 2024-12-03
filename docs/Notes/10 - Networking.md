@@ -6,7 +6,7 @@ nav_order: 10
 ---
 # Networking
 
-{: .highlight }
+{: .note }
 > Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf)
 
 ## Networks Review
@@ -210,7 +210,7 @@ nav_order: 10
 	2. contacts everyone on the local network
 	3. local server is configured to reply to the request with an address + **time limit**
 	4. later: can send messages to local server to renew/give up address
-	
+
 ## Network Address Translation
 - IPv4 address are scarce → convert many private address to one public address
 - outside POV: several machines share one public IP address

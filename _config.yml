@@ -9,7 +9,3 @@ baseurl: "/cso2-notes"
 nav_enabled: true
 
 math: katex
-
-callouts:
-  highlight:
-    color: purple

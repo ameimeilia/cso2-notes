@@ -6,7 +6,7 @@ nav_order: 5
 ---
 # Processes
 
-{: .highlight }
+{: .note }
 > Slides: [unix-api](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf)
 
 ## POSIX Process Management

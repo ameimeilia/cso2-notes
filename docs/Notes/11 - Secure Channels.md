@@ -6,7 +6,7 @@ nav_order: 11
 ---
 # Secure Channels
 
-{: .highlight }
+{: .note }
 > Slides: [secure](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf)
 
 ## Secure Communication Context

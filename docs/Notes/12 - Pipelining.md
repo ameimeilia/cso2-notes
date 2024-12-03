@@ -6,7 +6,7 @@ nav_order: 12
 ---
 # Pipelining
 
-{: .highlight }
+{: .note }
 > Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf)
 
 ## Pipelining

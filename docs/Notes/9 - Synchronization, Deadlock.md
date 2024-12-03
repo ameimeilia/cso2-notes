@@ -6,7 +6,7 @@ nav_order: 9
 ---
 # Synchronization, Deadlock
 
-{: .highlight }
+{: .note }
 > Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [deadlock](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf)
 
 ## Atomic Operation

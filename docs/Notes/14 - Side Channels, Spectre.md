@@ -6,7 +6,7 @@ nav_order: 14
 ---
 # Side Channels, Spectre
 
-{: .highlight }
+{: .note }
 > Slides: [spectre](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/spectre.pdf)
 
 ## Side Channels

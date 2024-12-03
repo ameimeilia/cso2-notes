@@ -6,7 +6,7 @@ nav_order: 6
 ---
 # Virtual Memory
 
-{: .highlight }
+{: .note }
 > Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
 
 ## Address Translation

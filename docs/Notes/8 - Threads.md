@@ -6,7 +6,7 @@ nav_order: 8
 ---
 # Threads
 
-{: .highlight }
+{: .note }
 > Slides: [threads](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf)
 
 ## Why Threads?
