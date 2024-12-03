@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Processors
-parent: readings
+parent: Readings
 nav_order: 14
 ---
 # Processors

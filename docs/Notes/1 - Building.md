@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Building
-parent: notes
+parent: Notes
 nav_order: 1
 ---
 # Building

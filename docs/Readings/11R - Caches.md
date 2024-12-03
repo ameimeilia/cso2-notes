@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Caches
-parent: readings
+parent: Readings
 nav_order: 9
 ---
 # Caches
@@ -75,7 +75,7 @@ nav_order: 9
 
 ### 4 Hierarchies of memory caches
 
-![A block diagram of a cache hierarchy featuring two cores with: each core connected to an L1 instruction cache and an L1 data cache. The L1 caches for each core are in turn connected to an L2 cache labeled as 'unified' for the core. The two L2 caches are then connected to a shared L3 cache. The L3 cache is, in turn, connected to main mmeory.](https://www.cs.virginia.edu/~cr4bd/3130/F2024/readings/cache-hierarchy.svg)
+![A block diagram of a cache hierarchy featuring two cores with: each core connected to an L1 instruction cache and an L1 data cache. The L1 caches for each core are in turn connected to an L2 cache labeled as 'unified' for the core. The two L2 caches are then connected to a shared L3 cache. The L3 cache is, in turn, connected to main mmeory.](https://www.cs.virginia.edu/~cr4bd/3130/F2024/Readings/cache-hierarchy.svg)
 
 - Modern systems typically have several levels of memory caches arranged in a hierarchy.
 - **L1 Cache**:

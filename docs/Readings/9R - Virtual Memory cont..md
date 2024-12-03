@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Virtual Memory cont.
-parent: readings
+parent: Readings
 nav_order: 8
 ---
 # Virtual Memory cont.
@@ -147,7 +147,7 @@ handle_page_fault(size_t va, int access_type) {
 
 The following depicts all of the lookups used by x86-64’s virtual memory system with 4K pages. Virtual addresses are in yellow, physical addresses in cyan, and page table entries in white.
 
-![](https://www.cs.virginia.edu/~cr4bd/3130/F2024/readings/address-trans.svg)
+![](https://www.cs.virginia.edu/~cr4bd/3130/F2024/Readings/address-trans.svg)
 
 The three zero bits at the end of the first four physical addresses accomplish the index × 8 needed to compute the address of an 8-byte PTE by its index.
 

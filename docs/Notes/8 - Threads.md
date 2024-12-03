@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Threads
-parent: notes
+parent: Notes
 nav_order: 8
 ---
 # Threads

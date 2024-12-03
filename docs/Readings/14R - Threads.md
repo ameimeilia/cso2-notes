@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Threads
-parent: readings
+parent: Readings
 nav_order: 10
 ---
 # Threads

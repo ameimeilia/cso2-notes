@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Out-of-Order
-parent: notes
+parent: Notes
 nav_order: 13
 ---
 # Out-of-Order

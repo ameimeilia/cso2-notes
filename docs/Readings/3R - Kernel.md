@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Kernel
-parent: readings
+parent: Readings
 nav_order: 4
 ---
 # Kernel

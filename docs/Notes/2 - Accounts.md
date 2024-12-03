@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Accounts
-parent: notes
+parent: Notes
 nav_order: 2
 ---
 # Accounts

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Processes
-parent: notes
+parent: Notes
 nav_order: 5
 ---
 # Processes

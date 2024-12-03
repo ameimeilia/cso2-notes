@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Virtual Memory
-parent: readings
+parent: Readings
 nav_order: 7
 ---
 # Virtual Memory

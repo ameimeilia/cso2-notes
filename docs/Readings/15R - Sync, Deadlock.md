@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Sync, Deadlock
-parent: readings
+parent: Readings
 nav_order: 11
 ---
 # Sync, Deadlock

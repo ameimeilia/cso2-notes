@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Side Channels, Spectre
-parent: notes
+parent: Notes
 nav_order: 14
 ---
 # Side Channels, Spectre

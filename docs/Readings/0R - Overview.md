@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Overview
-parent: readings
+parent: Readings
 nav_order: 1
 ---
 # Overview

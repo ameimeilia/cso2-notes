@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Thread, Kernel cont.
-parent: readings
+parent: Readings
 nav_order: 5
 ---
 # Thread, Kernel cont.

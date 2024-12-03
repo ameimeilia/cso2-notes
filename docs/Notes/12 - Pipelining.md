@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Pipelining
-parent: notes
+parent: Notes
 nav_order: 12
 ---
 # Pipelining

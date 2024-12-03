@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Accounts, POSIX Permissions
-parent: readings
+parent: Readings
 nav_order: 3
 ---
 # Accounts, POSIX Permissions

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Privilege, Exceptions
-parent: notes
+parent: Notes
 nav_order: 3
 ---
 # Privilege, Exceptions

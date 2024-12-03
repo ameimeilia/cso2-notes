@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Caches
-parent: notes
+parent: Notes
 nav_order: 7
 ---
 # Caches

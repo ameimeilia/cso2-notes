@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Synchronization, Deadlock
-parent: notes
+parent: Notes
 nav_order: 9
 ---
 # Synchronization, Deadlock

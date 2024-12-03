@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Protocols
-parent: readings
+parent: Readings
 nav_order: 12
 ---
 # Protocols

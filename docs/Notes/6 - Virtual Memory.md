@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Virtual Memory
-parent: notes
+parent: Notes
 nav_order: 6
 ---
 # Virtual Memory

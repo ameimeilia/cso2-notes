@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Signals
-parent: notes
+parent: Notes
 nav_order: 4
 ---
 # Signals

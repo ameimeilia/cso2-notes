@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Compilation, Makefiles
-parent: readings
+parent: Readings
 nav_order: 2
 ---
 # Compilation, Makefiles

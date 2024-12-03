@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Networking
-parent: notes
+parent: Notes
 nav_order: 10
 ---
 # Networking

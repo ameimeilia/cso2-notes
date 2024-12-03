@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Security
-parent: readings
+parent: Readings
 nav_order: 13
 ---
 # Security

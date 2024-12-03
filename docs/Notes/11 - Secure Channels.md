@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Secure Channels
-parent: notes
+parent: Notes
 nav_order: 11
 ---
 # Secure Channels
