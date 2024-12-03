@@ -10,9 +10,10 @@ nav_order: 10
 - each other thread is created by invoking a system call
 #### `pthread_create`
  - creates a new thread using the following arguments:
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-27 at 8.31.39 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 8.31.39 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ##### `pthread_attr_t`
 - usually just passing `NULL` is ok
 - **Thread Attributes**: Controls thread behavior, requiring:
@@ -46,6 +47,7 @@ Every created thread is either joinable or detached:
 	1. return value of the start function of the terminated thread
 	2. argument passed into `pthread_exit` to terminate the thread early
 	3. special value `PTHREAD_CANCELED` if the thread was stopped by another thread
+
 #### Crashing
 - a crash in any thread due to an unhandled signal terminates the entire program
 - signals are delivered to specific threads, so any signal handlers will be run by the thread the OS believes is the recipient of the signal

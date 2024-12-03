@@ -6,7 +6,7 @@ nav_order: 14
 ---
 # Side Channels, Spectre
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/spectre.pdf
+Slides: [spectre](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/spectre.pdf)
 ## Side Channels
 - unintended communication channel which leaks information
 
@@ -25,7 +25,7 @@ int check_passphrase(const char *versus) {
 
 - to exploit: run multiple guesses and measure time
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-27 at 12.42.35 AM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-11-27 at 12.42.35 AM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 
 ## Timing and Cryptography
@@ -50,11 +50,11 @@ int check_passphrase(const char *versus) {
 - leakage examples:
 	1. browser marks visited links → scripts can query current color of something
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 1.20.10 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 1.20.10 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 	2. script in webpage times loop that writes to a big array → variation in timing depends on **other things running on machine** → create distinct “signatures”
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 1.23.38 PM.png | relative_url }}" alt="Screenshot" width="300">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 1.23.38 PM.png' | relative_url}}" alt="Screenshot" width="300">
 </div>
 
 ## Inferring Cache Accesses
@@ -71,8 +71,8 @@ AccessAllOf(array);
 TimeAccessingArray();
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 1.34.06 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 1.34.06 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 - B: evict from same row
 - D: if tag and index are the same, the `*other_address` is part of the array
@@ -97,8 +97,8 @@ if (TimeAccessTo(&array[index]) > THRESHOLD) {
 }
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 1.50.41 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 1.50.41 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 - aside: this detects when the pointer is accessed but not necessarily if `mystery` is true since branch prediction may haves started the cache access
@@ -118,8 +118,8 @@ for (int i = 0; i < CACHE_SIZE; i += BLOCK_SIZE) {
 }
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 1.59.35 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 1.59.35 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 *exercise - inferring cache accesses 3*
@@ -137,8 +137,8 @@ if (TimeAccessTo(&array[index1]) > THRESHOLD ||
 }
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 2.02.30 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.02.30 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Prime + Probe
@@ -149,7 +149,7 @@ if (TimeAccessTo(&array[index1]) > THRESHOLD ||
 	2. do something that uses the cache
 	3. **Probe**: access values again and see where it’s slow
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 2.05.01 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.05.01 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *exercise - reading a value*
@@ -166,14 +166,14 @@ for (int i = 0; i < CACHE_SIZE; i += BLOCK_SIZE) {
 }
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 2.17.37 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.17.37 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Revisiting an Earlier Example
 - *exercise - inferring cache accesses 1*: what is mystery is false but branch mispredicted?
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 2.19.36 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.19.36 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - pointer access and eviction is run
 
@@ -232,8 +232,8 @@ int secret;
 y = array2[array1[x] * 4096];
 ```
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-12-02 at 2.43.39 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.43.39 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 *exercise*
@@ -247,7 +247,7 @@ y = array2[array1[x] * 4096];
 ```
 
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 2.48.26 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.48.26 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Exploit with Contrived Code**
@@ -292,7 +292,7 @@ if (x < array1_size)
 
 **Bounds Check in Kernel**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-12-02 at 2.56.41 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-12-02 at 2.56.41 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Privilege Levels
@@ -306,7 +306,7 @@ if (x < array1_size)
 	- can access arrays to examine caches
 	- could take advantage of some browser function being vulnerable
 	- **could supply vulnerable code itself**
-	
+
 ## Just-in-time Compilation
 - for performance, compiled to machine code, run in browser
 - not supposed to access arbitrary browser memory

@@ -6,7 +6,7 @@ nav_order: 9
 ---
 # Synchronization, Deadlock
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf
+Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [deadlock](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf)
 ## Atomic Operation
 - operation that runs to completion or not at all
 - most machines: loading/storing (aligned) values is atomic:
@@ -22,21 +22,21 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf, https://w
 - if not specified, not assume atomic
 ## Thinking about Race Conditions
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-27 at 6.28.46 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.28.46 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Lost `add`**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-27 at 6.36.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.36.55 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-27 at 6.38.24 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.38.24 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - occurs on multiple cores since `add` is implemented with multiple steps (load, add, store internally)
 - can be interleaved with what other cores do
 ## Compilers Move Loads/Stores
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-24 at 2.11.26 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 2.11.26 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## `pthreads` and reordering
 - many pthreads functions **prevent reordering**
@@ -81,8 +81,8 @@ pthread_mutex_unlock(&account_lock);
 ```
 
 *exercise*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-24 at 2.41.30 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 2.41.30 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Deadlock Examples
@@ -109,17 +109,17 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 **unlucky timeline**
 - Thread 1 holds A lock, waiting for Thread 2 to release B lock
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-24 at 2.51.04 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 2.51.04 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *example - deadlock with free space*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-24 at 2.53.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 2.53.55 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **unlucky timeline**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-24 at 2.54.18 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 2.54.18 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Deadlock
@@ -134,8 +134,8 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 4. **circular wait**: there exists a set $\{T_1,…T_n\}$ of waiting threads such that $T_1$ is waiting for a resource hold by $T_2$, … $T_n$ is waiting for a resource hold by $T_1$
 
 *exercise*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-24 at 3.09.53 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-24 at 3.09.53 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Deadlock Prevention Techniques
@@ -170,13 +170,13 @@ barrier.Wait()    // return after all threads have waited
 ```
 
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 10.42.18 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 10.42.18 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 
 - useful for reuse structure in simulations
 *example - reuse with barriers*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.10.59 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.10.59 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **`pthread` barriers**
@@ -195,7 +195,7 @@ pthread_barrier_wait(&barrier);
 
 *exercise - pthreads barriers*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.18.32 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.18.32 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Monitors/Condition Variables
@@ -205,41 +205,41 @@ pthread_barrier_wait(&barrier);
 	- operations: wait (for event); signal/broadcast (that event happened)
 - **monitor** = lock + 0 or more condition variables + shared data
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.26.50 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.26.50 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **`condvar` operations**
 `Wait(cv, lock)`: **unlock** lock, add current thread to cv queue, and **reacquire** lock before returning
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.29.23 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.29.23 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.30.15 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.30.15 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 `Broadcast(cv)`: remove all from cv queue
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.30.37 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.30.37 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 `Signal(cv)`: remove one from cv queue
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.31.00 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.31.00 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## `pthread` cv usage
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.00.36 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.00.36 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **WaitForFinish Timeline 1**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.02.17 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.02.17 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **WaitForFinish Timeline 2**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.05.56 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.05.56 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Why Use a `while` loop?**
@@ -260,7 +260,7 @@ while (!finished) {
 
 ## Producer/Consumer
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-29 at 2.38.47 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-10-29 at 2.38.47 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 - shared buffer (queue) of fixed size
 - one or more producers insert into queue, one or more consumers remove from queue
@@ -268,27 +268,27 @@ while (!finished) {
 
 **Unbounded Buffer Producer/Consumer**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.16.57 PM.png | relative_url }}" alt="Screenshot" width="550">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.16.57 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
 
 *0 Iterations of Loop*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.22.32 PM.png | relative_url }}" alt="Screenshot" width="550">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.22.32 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
 
 *1 Iteration of Loop*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.26.38 PM.png | relative_url }}" alt="Screenshot" width="550">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.26.38 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
 
 *2+ Iterations of Loop: Spurious Wakeup or 3+ Threads, shows Mesa-style*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-05 at 11.30.54 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.30.54 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Bounded Buffer Producer/Consumer**
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-05 at 11.41.52 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.41.52 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Monitor Pattern
@@ -333,12 +333,12 @@ pthread_mutex_destroy(&mutex);
 
 *exercise: wait for both finished*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.55.23 PM.png | relative_url }}" alt="Screenshot" width="550">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.55.23 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
 
 *exercise: one-use barrier*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-05 at 11.58.00 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-05 at 11.58.00 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Generalizing Locks: Semaphores
@@ -371,13 +371,13 @@ void ReturnBook() {
 	2. processor updates 4 bytes of 64-byte cache block
 	3. later, processor might give up cache block
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 12.06.57 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 12.06.57 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Performance vs Array Element Gap**
 - above 64 bytes, the two cache blocks are different, so there is no interference
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 12.07.18 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 12.07.18 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## False Sharing
@@ -386,7 +386,7 @@ void ReturnBook() {
 
 *exercise - where is false sharing likely to occur?*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 12.12.30 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 12.12.30 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Transactions

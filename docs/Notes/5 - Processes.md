@@ -6,7 +6,7 @@ nav_order: 5
 ---
 # Processes
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf
+Slides: [unix-api](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf)
 ## POSIX Process Management
 essential operations:
 1. `getpid`: process information
@@ -23,22 +23,22 @@ essential operations:
 - **everything (but PID) duplicated** in parent, child
 	- memory, file descriptors, registers
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 11.23.14 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 11.23.14 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *example*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 11.30.08 AM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 11.30.08 AM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## `fork`
 *example - outputs depend on timing*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 2.27.27 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 2.27.27 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *example - 2 processes are completely independent after fork*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 2.30.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 2.30.11 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## `exec`
 - `exec*`: replaces current program with new program
@@ -50,12 +50,12 @@ essential operations:
 
 *example*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 3.08.29 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.08.29 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *exec in the kernel*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 3.13.10 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.13.10 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## Why `fork/exec`?
 - alternative: only have one function to spawn a new program:
@@ -71,24 +71,24 @@ essential operations:
 
 *example*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 3.33.00 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.33.00 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 
 *waitpid pattern*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 3.36.04 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.36.04 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 3.40.58 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.40.58 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 *waitpid exercise*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 3.51.28 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 3.51.28 PM.png' | relative_url}}" alt="Screenshot">
 </div>
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 4.01.04 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 4.01.04 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## POSIX command-line features
 - searching for programs uses the `PATH` variable → `/bin`, `/usr/bin`, `.`
@@ -135,7 +135,7 @@ process->files[file_descriptor]
 ## Redirecting with `exec`
 - perform redirection after forking
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 4.32.49 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 4.32.49 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div> 
 
 *example*
@@ -145,8 +145,8 @@ redirection: `./program >output.txt`
 3. exec, preserving new stdout/stdin/stderr
 
 *example - dup2() redirects stdout to output.txt*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 8.09.46 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 8.09.46 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## open/dup/close/etc. and fd array
@@ -166,28 +166,28 @@ struct process_info {
 ## pipes
 - `pipe()` system call allocates a buffer in the kernel that allows for read/write
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 9.09.12 PM.png | relative_url }}" alt="Screenshot" width="300">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 9.09.12 PM.png' | relative_url}}" alt="Screenshot" width="300">
 </div>
 
 *example*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 9.17.21 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 9.17.21 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Pipe and Pipelines**
 - create pipe in parent, redirect in children
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-22 at 9.29.20 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 9.29.20 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-22 at 9.30.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-22 at 9.30.39 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## The Status
 - status code encodes both return value and if exit was abnormal
 - `W*` macros to decode it
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-24 at 2.19.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-24 at 2.19.55 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Open Files and File Descriptors

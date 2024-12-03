@@ -6,7 +6,7 @@ nav_order: 11
 ---
 # Secure Channels
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
+Slides: [secure](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf)
 ## Secure Communication Context
 - communication on a network between **principals** (people/servers/programs)
 
@@ -67,7 +67,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 
 *exercise*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-10 at 1.45.53 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-10 at 1.45.53 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## Asymmetric Encryption
 - two functions:
@@ -155,7 +155,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 
 **Certificate Hierarchy**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-12 at 2.50.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-12 at 2.50.39 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Public-key infrastructure**
@@ -231,8 +231,8 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/secure.pdf
 5. A combines Y with public value from B to get number
 6. B combines Z with public value from A to get number
 ## Typical TLS Handshake
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-16 at 4.36.42 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-16 at 4.36.42 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **After Handshake**

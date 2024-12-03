@@ -56,8 +56,8 @@ nav_order: 5
 #### 2.3 Exception-Like Constructs
 ##### 2.3.1 Signals
 - signals enable communication from kernel → user code, vs. exceptions enable communication from user code → kernel
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-10 at 5.04.49 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 5.04.49 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 - Signals are like interrupts but for kernel-to-user communication.

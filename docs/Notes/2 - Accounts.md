@@ -6,7 +6,7 @@ nav_order: 2
 ---
 # Accounts
 {: .highlight }
-Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf
+Slides: [accounts](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf)
 
 ## POSIX User IDs and Groups
 **User IDs**
@@ -67,7 +67,7 @@ chmod o-rwx, u=rx foo
 **POSIX ACL Syntax**
 - can specify multiple users and multiple groups
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 11.05.14 AM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 11.05.14 AM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **POSIX ACLs on command line**

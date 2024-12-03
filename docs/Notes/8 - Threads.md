@@ -6,13 +6,13 @@ nav_order: 8
 ---
 # Threads
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf
+Slides: [threads](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf)
 ## Why Threads?
 1. **concurrency**: one thread for each different thing happening at the same time
 2. **parallelism**: do same thing with more resources
 ## Single and Multithread Processes
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-21 at 3.09.54 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-21 at 3.09.54 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## `pthread_create`
@@ -36,7 +36,7 @@ int main() {
 ```
 
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-21 at 11.15.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-21 at 11.15.42 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## A Threading Race
@@ -94,43 +94,43 @@ if (error != 0) {
 
 ## Thread Example
 *example - sum, only globals*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-21 at 10.02.27 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-21 at 10.02.27 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Memory Layout**
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-21 at 10.02.40 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-21 at 10.02.40 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 *example - sum, to global, with thread IDs*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-21 at 10.07.53 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-21 at 10.07.53 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 ## Thread Example
 *example - sum, info struct*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-27 at 6.00.01 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.00.01 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-22 at 2.27.57 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-10-22 at 2.27.57 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 
 *example - sum, to main stack*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-27 at 6.00.53 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.00.53 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-22 at 2.30.51 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-22 at 2.30.51 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *example - sum, on heap*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-10-27 at 6.08.11 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-10-27 at 6.08.11 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-22 at 2.31.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-22 at 2.31.11 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Returning from Threads
@@ -152,7 +152,7 @@ int main() {
 ```
 
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-10-22 at 2.35.34 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-10-22 at 2.35.34 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 ## Thread Joining

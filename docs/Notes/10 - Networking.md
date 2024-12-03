@@ -6,12 +6,12 @@ nav_order: 10
 ---
 # Networking
 {: .highlight }
-Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
+Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf)
 ## Networks Review
 **Mailbox Abstraction**
 - send/receive messages
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 3.18.56 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 3.18.56 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - essentially how the “raw” Internet is implemented
 - sockets are implemented on top of this
@@ -19,11 +19,11 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 **Sockets/Connections**
 - set up explicit connection then information can be sent on the connection
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 5.38.59 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 5.38.59 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## Layers
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 5.42.28 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 5.42.28 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - application layer is built atop the transport layer which is built atop the network layer…
 ## Network Limitations/Failures
@@ -38,13 +38,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - Machine A picks a limit to the amount of time it is willing to wait for the acknowledgement
 - if Machine A reaches the limit, it “times out” and attempts to send the message again
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 6.01.12 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 6.01.12 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - if Machine B’s acknowledgement message gets lost:
 	- Machine A should resend the message (which follow the original protocol)
 	- Machine B will need to be able to handle receiving multiple messages
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 6.01.44 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 6.01.44 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Handling Delayed Messages**
@@ -54,12 +54,12 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 
 *delayed message*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 6.06.12 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 6.06.12 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *delayed acknowledgement*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 6.03.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 6.03.42 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Handling Message Size Limitations**
@@ -67,7 +67,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - Machine B must be able to identify the correct parts of the message
 - Machine A must be able to identify the correct acknowledgements
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-06 at 6.21.46 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-06 at 6.21.46 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **Handling Message Corruption**
@@ -83,13 +83,13 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 	- SFTP on SSH on TCP…
 ## Names and Addresses
 - used to specify machine
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-09 at 8.48.13 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 8.48.13 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 *example - an Ethernet frame*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-09 at 8.57.41 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 8.57.41 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## The Network Layer
 - Internet Protocol (IP) v4 or v6 in common use today
@@ -109,7 +109,7 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 - typically given in blocks of $2^{80}$ or $2^{64}$ addresses
 ## IPv4 Addresses and Routing Tables
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-09 at 9.15.08 PM.png | relative_url }}" alt="Screenshot" width="450">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 9.15.08 PM.png' | relative_url}}" alt="Screenshot" width="450">
 </div>
 
 **Selected Special IPv4 addresses**
@@ -147,22 +147,22 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 	- protocol=TCP/UDP, local IP address, local port, remote IP address, remote port
 	- used by OS to lookup socket from table
 
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-09 at 9.48.15 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 9.48.15 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Non-connection Sockets**
 - TCP servers waiting for connections
 - UDP sockets with no articular remote host
 - Linux: OS keeps 5-tuple with “wildcard” remote address
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-09 at 9.52.00 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 9.52.00 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## DNS: Distributed Database
 - domain name system
 - links addresses with names
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-11-09 at 10.04.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-11-09 at 10.04.42 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## URL/URIs
 - Uniform Resource Locators (URL)
@@ -204,6 +204,6 @@ Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 **Implementing NAT**
 - use NAT translation table, managed by router
 - add entries as connections are made and remove as connections are closed
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-11-10 at 12.54.42 AM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-11-10 at 12.54.42 AM.png' | relative_url}}" alt="Screenshot">
 </div>

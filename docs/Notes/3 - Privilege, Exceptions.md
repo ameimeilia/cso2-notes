@@ -6,10 +6,10 @@ nav_order: 3
 ---
 # Privilege, Exceptions
 {: .highlight }
-Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
+Slides: [kernel](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf)
 ## Kernel Mode
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.08.32 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.08.32 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - user mode/kernel mode determined by extra one-bit register
 - certain operation only allows in kernel mode, ex. talking to an I/O device
@@ -29,7 +29,7 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 	4. OS figures out what operation the program wants and ensures it is valid
 	5. complete operation and restore user saved state
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.19.52 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.19.52 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## Linux x86-64 System Calls
 - before `syscall`:
@@ -40,8 +40,8 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 	- on error → `%rax` contains -1 times “error number”
 
 *example - Hello World*
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-09 at 2.35.01 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.35.01 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Linux System Call Examples**
@@ -55,18 +55,18 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 **System Call Wrappers**
 - functions with purpose to convert from a normal function call to a system call
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.43.34 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.43.34 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 *example usage*
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.42.02 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.42.02 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 **`strace hello_world`**
 - Linux tool to trace system calls
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.44.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.44.39 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 ## Memory Protection
 **Address Space**
@@ -75,12 +75,12 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 	1. map Program B to other memory
 	2. do not map Program B → segmentation fault
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-09 at 2.51.06 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-09 at 2.51.06 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 - one program cannot access another program’s memory without deliberately allowing it
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-10 at 2.18.05 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 2.18.05 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - Program A will always have the expected result
 - Program B might crash because the OS may not map program B addresses
@@ -107,12 +107,12 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 
 **General Exception Process**
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-10 at 2.21.03 PM.png | relative_url }}" alt="Screenshot" width="500">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 2.21.03 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 
 - utilizes time multiplexing: sharing the processor’s time
 <div style="text-align: center;">
-  <img src="{{ Screenshot 2024-09-10 at 2.22.34 PM.png | relative_url }}" alt="Screenshot" width="400">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 2.22.34 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
 ## Exception Patterns with I/O
 **Input**
@@ -154,10 +154,10 @@ Slides: tps://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 1. OS starts running (some sort of exception)
 2. save old registers + program counter + address mapping in individual process’s process control block (PCB)
 3. sets new registers + address mapping, jump to new program counter
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-10 at 2.32.56 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 2.32.56 PM.png' | relative_url}}" alt="Screenshot">
 </div>
 ## Exceptions vs Context Switch
-<div style="text-align: center">
-  <img src="{{ Screenshot 2024-09-10 at 2.59.40 PM.png | relative_url }}" alt="Screenshot">
+<div style="text-align: center;">
+  <img src="{{ '/images/Screenshot 2024-09-10 at 2.59.40 PM.png' | relative_url}}" alt="Screenshot">
 </div>
