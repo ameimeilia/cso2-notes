@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 1
 ---
 # Building
+
 {: .highlight }
-Slides: [building](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf)
+> Slides: [building](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf)
+
 ## C/Pointer Review
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-12-03 at 5.15.44 PM.png' | relative_url}}" alt="Screenshot" width="400">
@@ -27,13 +29,13 @@ Slides: [building](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building
 - automatically get library changes
 - fewer copies in memory
 - possibly slower to startup/run
-- libc.so is “c standard library,” dynamic library, shared library, “shared object”
+- `libc.so` is “c standard library,” dynamic library, shared library, “shared object”
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-09 at 12.04.42 AM.png' | relative_url}}" alt="Screenshot">
 </div>
 
 **Static Linking**
-- libc.a file
+- `libc.a` file
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-09 at 12.23.21 AM.png' | relative_url}}" alt="Screenshot">
 </div>

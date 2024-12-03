@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 10
 ---
 # Networking
+
 {: .highlight }
-Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf)
+> Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf)
+
 ## Networks Review
 **Mailbox Abstraction**
 - send/receive messages
@@ -21,11 +23,13 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-06 at 5.38.59 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Layers
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-06 at 5.42.28 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
 - application layer is built atop the transport layer which is built atop the network layer…
+
 ## Network Limitations/Failures
 - messages can be:
 	- lost
@@ -75,12 +79,14 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 - when receiving, recompute hash and check if match
 - no match = message lost
 - hashes are commonly called **checksums**
+
 ## 4+ Layers
 - often there are more layers above the “application” layer in inconsistent way
 - eg.
 	- HTTPS on TLS on TCP…
 	- DNS on HTTPS on TLS on TCP…
 	- SFTP on SSH on TCP…
+
 ## Names and Addresses
 - used to specify machine
 <div style="text-align: center;">
@@ -91,6 +97,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-09 at 8.57.41 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## The Network Layer
 - Internet Protocol (IP) v4 or v6 in common use today
 
@@ -107,6 +114,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 - written in hex, 16-bit parts, separated by colons
 - strings of 0s represented by double-colons
 - typically given in blocks of $2^{80}$ or $2^{64}$ addresses
+
 ## IPv4 Addresses and Routing Tables
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-09 at 9.15.08 PM.png' | relative_url}}" alt="Screenshot" width="450">
@@ -122,6 +130,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 - `169.254.0.0 - 169.254.255.255`
 	- link-local addresses
 	- never forwarded by routers
+
 ## Port Numbers in the Transport Layer
 - used to identify individual programs/connections
 - 16-bit port numbers
@@ -129,6 +138,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 	- `80` = HTTP, `443` = HTTPS, `22` = SSH
 - `49152 - 65535`: allocated on demand
 	- default “return address” for client connecting to server
+
 ## User Datagram Protocol (UDP) vs Transmission Control Protocol (TCP)
 **TCP**: reliability/streams to other program
 - **reliable** transmission of **as much data as you want**
@@ -141,6 +151,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 - “connecting” just sets default destination
 - `write(fd, "a", 1); write(fd, "b", 1)` not equal to `write(fd, "ab", 2)`
 - can send/receive multiple programs with one socket
+
 ## Connections
 **Connections in TCP/IP**
 - connection identified by 5-tuple:
@@ -158,12 +169,14 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-09 at 9.52.00 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## DNS: Distributed Database
 - domain name system
 - links addresses with names
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-09 at 10.04.42 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## URL/URIs
 - Uniform Resource Locators (URL)
 	- tells how to find “resource” on network
@@ -184,6 +197,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 - `https://kytos02.cs.virginia.edu:443/cs3130-spring2023/quizzes/quiz.php?qid=02#q2`
 - `//www.cs.virginia.edu/~cr4bd/3130/S2023`: scheme implied from context
 - `/~cr4bd/3130/S2023`: scheme/host implied from context
+
 ## Auto-configuration
 - often the local router machine runs a service to assign IP addresses to a machine
 - the local router:
@@ -196,6 +210,7 @@ Slides: [network](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.p
 	2. contacts everyone on the local network
 	3. local server is configured to reply to the request with an address + **time limit**
 	4. later: can send messages to local server to renew/give up address
+	
 ## Network Address Translation
 - IPv4 address are scarce → convert many private address to one public address
 - outside POV: several machines share one public IP address

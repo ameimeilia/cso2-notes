@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 3
 ---
 # Privilege, Exceptions
+
 {: .highlight }
-Slides: [kernel](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf)
+> Slides: [kernel](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf)
+
 ## Kernel Mode
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-09 at 2.08.32 PM.png' | relative_url}}" alt="Screenshot" width="500">

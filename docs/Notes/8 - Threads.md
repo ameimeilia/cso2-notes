@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 8
 ---
 # Threads
+
 {: .highlight }
-Slides: [threads](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf)
+> Slides: [threads](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/threads.pdf)
+
 ## Why Threads?
 1. **concurrency**: one thread for each different thing happening at the same time
 2. **parallelism**: do same thing with more resources

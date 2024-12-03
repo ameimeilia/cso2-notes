@@ -5,12 +5,15 @@ parent: Notes
 nav_order: 6
 ---
 # Virtual Memory
+
 {: .highlight }
-Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
+> Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
+
 ## Address Translation
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-24 at 3.00.13 PM.png' | relative_url}}" alt="Screenshot" width="600">
 </div>
+
 ## Toy Program Memory
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-24 at 2.37.07 PM.png' | relative_url}}" alt="Screenshot" width="500">
@@ -18,13 +21,16 @@ Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-24 at 2.41.58 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Toy Page Table Lookup
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-24 at 2.47.04 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Virtual Address Sizes
 - virtual address sizes are not always the size of pointers, sometimes part of the pointer is not used
 - virtual address size is amount actually used for mapping
+
 ## Address Space Size
 - amount that can be addressed, based on number of unique addresses
 - eg. 32-bit virtual address = $2^{32}$ byte virtual address space
@@ -39,11 +45,13 @@ Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-24 at 3.29.25 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## Permission Bits
 - additional bits in page table entry that define:
 	- user mode access
 	- read, write, execute permissions
 - checked by hardware, like the valid bit
+
 ## Space on Demand
 - allocate space for the stack only when needed
 - space doesn’t need to be initially empty
@@ -60,11 +68,13 @@ Slides: [vm](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf)
 3. OS looks up what should be there: stack
 4. exception handler: OS allocates more stack space
 5. OS updates the page table then returns to retry the instruction
+
 ## Extra Sharing
 - sharing writable data is ok until either process modifies it
 - ex. default value of global variables might not change
 - use the page table to indicate to the CPI that some shared part is read-only
 - processor will trigger a fault when it’s written
+
 ## Copy-on-write and Page Tables
 1. copy process duplicates page table
 2. both processes share all physical pages, both are marked as read-only
@@ -105,6 +115,7 @@ data[100] = 'x';
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-09-30 at 1.38.26 AM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## Page Tricks Generally
 - deliberately **make program trigger page/protection fault**
 - but **don’t assume page/protection fault is an error**

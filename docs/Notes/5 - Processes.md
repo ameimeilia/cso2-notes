@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 5
 ---
 # Processes
+
 {: .highlight }
-Slides: [unix-api](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf)
+> Slides: [unix-api](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/unix-api.pdf)
+
 ## POSIX Process Management
 essential operations:
 1. `getpid`: process information

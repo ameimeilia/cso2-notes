@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 9
 ---
 # Synchronization, Deadlock
+
 {: .highlight }
-Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [deadlock](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf)
+> Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [deadlock](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/deadlock.pdf)
+
 ## Atomic Operation
 - operation that runs to completion or not at all
 - most machines: loading/storing (aligned) values is atomic:
@@ -20,6 +22,7 @@ Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [
 - assume load/stores of ‘words’
 - processor designer will specify what is atomic
 - if not specified, not assume atomic
+
 ## Thinking about Race Conditions
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-27 at 6.28.46 PM.png' | relative_url}}" alt="Screenshot" width="500">
@@ -34,10 +37,12 @@ Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [
 </div>
 - occurs on multiple cores since `add` is implemented with multiple steps (load, add, store internally)
 - can be interleaved with what other cores do
+
 ## Compilers Move Loads/Stores
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-24 at 2.11.26 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## `pthreads` and reordering
 - many pthreads functions **prevent reordering**
 	- everything before function call actually happens before
@@ -47,10 +52,12 @@ Slides: [sync](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/sync.pdf), [
 **implementations**:
 1. prevent compiler reordering
 2. use special instructions, ex. x86 `mfence` “memory fence” instruction
+
 ## Definitions
 - **mutual exclusion**: ensuring only one thread does a particular thing at a time
 - **critical section**: code that exactly one thread can execute at a time
 - **lock**: object only one thread can hold at a time
+
 ## The Lock Primitive
 - locks: an object with (at least) two operations:
 	1. *acquire* or *lock*: **wait** until lock is free, then “grab” it

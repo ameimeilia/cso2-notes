@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 7
 ---
 # Caches
+
 {: .highlight }
-Slides: [caches](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf)
+> Slides: [caches](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/caching.pdf)
+
 ## Memory Hierarchy Assumptions
 - **temporal locality**: caches should keep *recently accessed values*
 - **spatial locality**: caches should *store adjacent values at the same time*
@@ -22,8 +24,10 @@ double computeMean(int length, double *values) {
 	return total / length;
 }
 ```
+
 - temporal locality: machine code of loop; `total`, `i`, `length` accessed repeatedly
 - spatial locality: machine code of most consecutive instructions; `values[i]` and `values[i+1]` accessed
+
 ## Split Caches; Multiple Cores
 - typically separate data and instruction caches for L1
 - (almost) never going to read instructions as data or vice-versa
@@ -32,14 +36,17 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-03 at 2.40.57 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## One-block Cache
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-03 at 2.51.27 PM.png' | relative_url}}" alt="Screenshot" width="450">
 </div>
+
 ## Direct-mapped Cache
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-03 at 3.36.06 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Tag-Index-Offset (TIO)
 - depends on cache design
 <div style="text-align: center;">
@@ -56,6 +63,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-03 at 3.16.44 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
+
 ## Direct-mapped Caches
 *example - access pattern*
 <div style="text-align: center;">
@@ -69,6 +77,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-13 at 9.40.47 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## Misses
 **Simulated Misses: BST Lookups**
 *simulated 16KB direct-mapped data cache; excluding BST setup*
@@ -93,6 +102,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-13 at 10.03.25 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## Associativity
 - multiple places to put values with the same index
 - avoid misses from two active values using same set (**conflict misses**)
@@ -136,6 +146,7 @@ double computeMean(int length, double *values) {
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-14 at 8.47.43 PM.png' | relative_url}}" alt="Screenshot" width="400">
 </div>
+
 ## Cache Accesses and C Code
 *exercise - what data cache accesses does this function do?*
 
@@ -191,6 +202,7 @@ odd_sum += array[3];
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-10-14 at 9.16.39 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 **Aside: Alignment**
 - compilers and malloc/new implementations usually try to **align** values
 - align = make address be multiple of something

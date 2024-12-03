@@ -5,8 +5,9 @@ parent: Notes
 nav_order: 2
 ---
 # Accounts
+
 {: .highlight }
-Slides: [accounts](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf)
+> Slides: [accounts](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/accounts.pdf)
 
 ## POSIX User IDs and Groups
 **User IDs**

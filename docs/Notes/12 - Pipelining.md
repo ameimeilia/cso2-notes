@@ -5,8 +5,10 @@ parent: Notes
 nav_order: 12
 ---
 # Pipelining
+
 {: .highlight }
-Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf)
+> Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf)
+
 ## Pipelining
 - **latency**: time to complete one instruction
 - **throughput**: rate to complete many instructions (time between finishes = time between starts)
@@ -21,6 +23,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-16 at 5.18.10 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Diminishing Returns
 - can’t infinitely increase stages to decrease cycle time
 
@@ -54,6 +57,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-16 at 5.50.54 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Control Hazard
 - pipeline needs to read value that **hasn’t been computed** yet
 
@@ -74,6 +78,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 </div>
 - to “undo” partially executed instructions, remove values from pipeline registers
 - more complicated pipelines: replace written values in cache/registers/etc.
+
 ## Forwarding/Bypassing
 **Opportunity 1**
 - better solution for data hazard
@@ -100,6 +105,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-16 at 11.26.09 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Stalling + Forwarding
 - combine stalling and forwarding when a memory read is followed by an operation on the read value
 	- forwarding from memory directly to execute requires completing both stages in one clock cycle → invalid
@@ -112,6 +118,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-25 at 5.54.20 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Hazard vs Dependencies
 - **hazard**: two instructions interfere with same value
 	- extra work is done prior to resolve hazards
@@ -126,6 +133,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-25 at 6.50.15 PM.png' | relative_url}}" alt="Screenshot">
 </div>
+
 ## Beyond Pipelining
 **Multiple Issue**
 - start **more than one instruction/cycle**
@@ -142,6 +150,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-19 at 2.31.40 PM.png' | relative_url}}" alt="Screenshot" width="550">
 </div>
+
 ## Out-of-order and Hazards
 - out-of-order execution makes hazards harder to handle
 	- problems for forwarding, branch prediction, figuring out which instructions to dispatch
@@ -174,6 +183,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 - different physical register for each version of architectural
 - track which physical registers are ready
 - compare physical register numbers to do forwarding
+
 ## An OOO Pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-25 at 7.13.49 PM.png' | relative_url}}" alt="Screenshot">
@@ -183,6 +193,7 @@ Slides: [pipeline](https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline
 <div style="text-align: center;">
   <img src="{{ '/images/Screenshot 2024-11-25 at 7.19.17 PM.png' | relative_url}}" alt="Screenshot" width="500">
 </div>
+
 ## Register Renaming State
 *example 1*
 <div style="text-align: center;">
