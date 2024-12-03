@@ -17,13 +17,19 @@ nav_order: 13
 ##### Execution Units/Functional Units
 - where actual work of instruction is done, e.g. the actual ALU, or data cache
 - sometimes pipelined:
-![[Screenshot 2024-11-21 at 2.17.11 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-21 at 2.17.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *exercise*
-![[Screenshot 2024-11-21 at 2.24.21 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-21 at 2.24.21 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 - sometimes unpipelined:
-![[Screenshot 2024-11-21 at 2.24.48 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-21 at 2.24.48 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Instruction Queue and Dispatch (multicycle)
 ![[Screenshot 2024-11-25 at 9.53.30 PM.png]]
 ##### Register Renaming: Missing Pieces
@@ -39,15 +45,21 @@ nav_order: 13
 - branch misprediction has a big cost (relative to pipelined)
 ##### Importance of Prediction
 - predicting a jump is always not taken/stalling both result in 2 wasted cycles for each jump taken
-![[Screenshot 2024-11-25 at 10.03.02 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-25 at 10.03.02 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 - additionally, stalling also results in 2 wasted cycles for each jump not taken
 - correct branch prediction has a very big impact on performance
-![[Screenshot 2024-11-25 at 11.10.42 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-25 at 11.10.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Static Branch Prediction
 - forward not taken, backward taken
 - if the target of the jump is greater than the PC, assume the jump is not taken
 - if the target of the jump is less than the PC, assume the jump is taken
-![[Screenshot 2024-11-25 at 10.13.07 PM.png | center | 300]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-25 at 10.13.07 PM.png | relative_url }}" alt="Screenshot" width="300">
+</div>
 
 *example - predict same as last*
 ![[Screenshot 2024-11-25 at 10.27.33 PM.png]]

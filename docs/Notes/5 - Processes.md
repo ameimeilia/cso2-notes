@@ -22,16 +22,22 @@ essential operations:
 	2. in child (new process): 0
 - **everything (but PID) duplicated** in parent, child
 	- memory, file descriptors, registers
-![[Screenshot 2024-09-22 at 11.23.14 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 11.23.14 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example*
 ![[Screenshot 2024-09-22 at 11.30.08 AM.png]]
 ##### `fork`
 *example - outputs depend on timing*
-![[Screenshot 2024-09-22 at 2.27.27 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 2.27.27 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example - 2 processes are completely independent after fork*
-![[Screenshot 2024-09-22 at 2.30.11 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 2.30.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### `exec`
 - `exec*`: replaces current program with new program
 	- `*`: multiple variants
@@ -41,7 +47,9 @@ essential operations:
 	- `**argv`: array of arguments, terminated by null pointer
 
 *example*
-![[Screenshot 2024-09-22 at 3.08.29 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 3.08.29 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *exec in the kernel*
 ![[Screenshot 2024-09-22 at 3.13.10 PM.png]]
@@ -58,7 +66,9 @@ essential operations:
 - `options`: `0` for no options
 
 *example*
-![[Screenshot 2024-09-22 at 3.33.00 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 3.33.00 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 *waitpid pattern*
 ![[Screenshot 2024-09-22 at 3.36.04 PM.png]]
@@ -109,7 +119,9 @@ process->files[file_descriptor]
 - resources deallocated when the last file descriptor for an open file is closed
 ##### Redirecting with `exec`
 - perform redirection after forking
-![[Screenshot 2024-09-22 at 4.32.49 PM.png | center | 500]] 
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 4.32.49 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div> 
 
 *example*
 redirection: `./program >output.txt`
@@ -132,18 +144,25 @@ struct process_info {
 - fork: `for (int i = ...) { child->files[i] = parent->files[i]; }`
 ##### pipes
 - `pipe()` system call allocates a buffer in the kernel that allows for read/write
-![[Screenshot 2024-09-22 at 9.09.12 PM.png | center | 300]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 9.09.12 PM.png | relative_url }}" alt="Screenshot" width="300">
+</div>
 
 *example*
 ![[Screenshot 2024-09-22 at 9.17.21 PM.png]]
 
 **Pipe and Pipelines**
 - create pipe in parent, redirect in children
-![[Screenshot 2024-09-22 at 9.29.20 PM.png]]![[Screenshot 2024-09-22 at 9.30.39 PM.png | center | 500]]
+![[Screenshot 2024-09-22 at 9.29.20 PM.png]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 9.30.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### The Status
 - status code encodes both return value and if exit was abnormal
 - `W*` macros to decode it
-![[Screenshot 2024-09-24 at 2.19.55 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-24 at 2.19.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Open Files and File Descriptors
 - when a process is forked, it inherits the parent’s file descriptors
 	- preserved across exec()

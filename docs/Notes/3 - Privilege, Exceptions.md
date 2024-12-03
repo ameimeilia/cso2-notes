@@ -8,7 +8,9 @@ nav_order: 3
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/kernel.pdf
 ##### Kernel Mode
-![[Screenshot 2024-09-09 at 2.08.32 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.08.32 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - user mode/kernel mode determined by extra one-bit register
 - certain operation only allows in kernel mode, ex. talking to an I/O device
 - in kernel mode, OS controls access to hardware
@@ -26,7 +28,9 @@ nav_order: 3
 	3. OS runs in kernel mode at specified location (location can’t be changed without privileged instruction)
 	4. OS figures out what operation the program wants and ensures it is valid
 	5. complete operation and restore user saved state
-![[Screenshot 2024-09-09 at 2.19.52 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.19.52 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Linux x86-64 System Calls
 - before `syscall`:
 	- `%rax` : system call number
@@ -48,24 +52,34 @@ nav_order: 3
 
 **System Call Wrappers**
 - functions with purpose to convert from a normal function call to a system call
-![[Screenshot 2024-09-09 at 2.43.34 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.43.34 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example usage*
-![[Screenshot 2024-09-09 at 2.42.02 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.42.02 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **`strace hello_world`**
 - Linux tool to trace system calls
-![[Screenshot 2024-09-09 at 2.44.39 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.44.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Memory Protection
 **Address Space**
 - programs have the illusion of their own memory → “virtual memory”
 - methods of mapping:
 	1. map Program B to other memory
 	2. do not map Program B → segmentation fault
-![[Screenshot 2024-09-09 at 2.51.06 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 2.51.06 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 - one program cannot access another program’s memory without deliberately allowing it
-![[Screenshot 2024-09-10 at 2.18.05 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-10 at 2.18.05 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - Program A will always have the expected result
 - Program B might crash because the OS may not map program B addresses
 ##### Exceptions
@@ -90,10 +104,14 @@ nav_order: 3
 - these exceptions are *asynchronous*: not triggered by running program
 
 **General Exception Process**
-![[Screenshot 2024-09-10 at 2.21.03 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-10 at 2.21.03 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 - utilizes time multiplexing: sharing the processor’s time
-![[Screenshot 2024-09-10 at 2.22.34 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-10 at 2.22.34 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 ##### Exception Patterns with I/O
 **Input**
 - *Case 1*: input available now

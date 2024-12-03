@@ -16,7 +16,9 @@ nav_order: 4
 	- pressing ctrl+C
 	- other events that would normally terminate program (seg fault, illegal instruction, /0)
 - can invoke *signal handler*
-![[Screenshot 2024-09-15 at 5.26.16 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-15 at 5.26.16 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Exceptions vs. Signals**
 
@@ -27,12 +29,18 @@ nav_order: 4
 | hardware needs to save PC   | OS needs to save PC + registers |
 | processor PC changes        | thread program counter changes  |
 **Example Signal Program**
-![[Screenshot 2024-09-15 at 5.18.19 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-15 at 5.18.19 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
-![[Screenshot 2024-09-15 at 5.19.05 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-15 at 5.19.05 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 **’Forwarding’ Exception as Signal**
-![[Screenshot 2024-09-10 at 3.10.34 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-10 at 3.10.34 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Signal API
 1. `sigaction`: register handler for signal
 2. `kill`: sends signal to process using process ID
@@ -52,10 +60,14 @@ kill -USR1 1234
 ```
 
 - `kill()` not always immediate
-![[Screenshot 2024-09-12 at 2.28.03 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-12 at 2.28.03 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example*
-![[Screenshot 2024-09-18 at 12.04.01 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-18 at 12.04.01 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Signal Handler Unsafety
 *example*
 ```C
@@ -92,4 +104,6 @@ void handle_signint(){
 	- `sigwait`: wait for signal to become pending, instead of having signal handler
 
 *example*
-![[Screenshot 2024-09-22 at 1.04.27 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-22 at 1.04.27 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>

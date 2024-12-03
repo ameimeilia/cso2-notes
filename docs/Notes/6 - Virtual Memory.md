@@ -8,11 +8,20 @@ nav_order: 6
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/vm.pdf
 ##### Address Translation
-![[Screenshot 2024-09-24 at 3.00.13 PM.png | center | 600]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-24 at 3.00.13 PM.png | relative_url }}" alt="Screenshot" width="600">
+</div>
 ##### Toy Program Memory
-![[Screenshot 2024-09-24 at 2.37.07 PM.png | center | 500]]![[Screenshot 2024-09-24 at 2.41.58 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-24 at 2.37.07 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-24 at 2.41.58 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Toy Page Table Lookup
-![[Screenshot 2024-09-24 at 2.47.04 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-24 at 2.47.04 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Virtual Address Sizes
 - virtual address sizes are not always the size of pointers, sometimes part of the pointer is not used
 - virtual address size is amount actually used for mapping
@@ -22,7 +31,9 @@ nav_order: 6
 - eg. 20-bit physical address = $2^{20}$ byte physical address space
 
 *exercise - page table size*
-![[Screenshot 2024-09-29 at 11.27.33 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-29 at 11.27.33 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 *exercise - page table lookup*![[Screenshot 2024-09-24 at 3.29.25 PM.png]]
 ##### Permission Bits
@@ -132,14 +143,19 @@ error_code = posix_memalign(&result, alingment, size);
 ##### Two-level Page Table Lookup
 ![[Screenshot 2024-10-01 at 3.56.36 PM.png]]
 
-*another view*![[Screenshot 2024-10-01 at 3.56.51 PM.png | center | 500]]
+*another view*
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-01 at 3.56.51 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Multi-level Page Tables
 - VPN split into pieces for each level of page table
 - top levels: page table entries point to next page table
 - bottom level: page table entry points to destination page
 - validity checks at *each level*
 ##### 2-level Splitting
-![[Screenshot 2024-10-01 at 3.49.28 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-01 at 3.49.28 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example - 2 level page table lookups*
 ![[Screenshot 2024-10-01 at 3.08.58 PM.png]]

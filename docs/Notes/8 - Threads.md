@@ -31,7 +31,9 @@ int main() {
 }
 ```
 
-![[Screenshot 2024-10-21 at 11.15.42 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-21 at 11.15.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### A Threading Race
 - non-deterministic behavior when working with threads → race conditions
 *example - output `in the thread` ~ 4% of the time*
@@ -91,15 +93,21 @@ if (error != 0) {
 ##### Thread Example
 *example - sum, info struct*
 ![[Screenshot 2024-10-27 at 6.00.01 PM.png]]
-![[Screenshot 2024-10-22 at 2.27.57 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-22 at 2.27.57 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 *example - sum, to main stack*
 ![[Screenshot 2024-10-27 at 6.00.53 PM.png]]
-![[Screenshot 2024-10-22 at 2.30.51 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-22 at 2.30.51 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example - sum, on heap*
 ![[Screenshot 2024-10-27 at 6.08.11 PM.png]]
-![[Screenshot 2024-10-22 at 2.31.11 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-22 at 2.31.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Returning from Threads
 ```C
 /* omitted: headers */
@@ -117,7 +125,9 @@ int main() {
 }
 ```
 
-![[Screenshot 2024-10-22 at 2.35.34 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-22 at 2.35.34 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Thread Joining
 - `pthread_join` allows collecting thread return value
 - if you don’t join joinable thread → **memory leak**

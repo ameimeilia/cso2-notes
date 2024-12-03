@@ -28,21 +28,33 @@ double computeMean(int length, double *values) {
 - (almost) never going to read instructions as data or vice-versa
 - can optimize instruction cache for different access pattern
 - easier to build fast caches that handle less accesses at a time
-![[Screenshot 2024-10-03 at 2.40.57 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 2.40.57 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### One-block Cache
-![[Screenshot 2024-10-03 at 2.51.27 PM.png | center | 450]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 2.51.27 PM.png | relative_url }}" alt="Screenshot" width="450">
+</div>
 ##### Direct-mapped Cache
-![[Screenshot 2024-10-03 at 3.36.06 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 3.36.06 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Tag-Index-Offset (TIO)
 - depends on cache design
-![[Screenshot 2024-10-03 at 3.27.41 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 3.27.41 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **TIO Formulas (direct-mapped)**
-![[Screenshot 2024-10-03 at 2.59.25 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 2.59.25 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 - **cache size**: amount of *data* in cache, not including metadata (tags, valid bits, etc.)
 
 *exercise - TIO*
-![[Screenshot 2024-10-03 at 3.16.44 PM.png | center | 550]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-03 at 3.16.44 PM.png | relative_url }}" alt="Screenshot" width="550">
+</div>
 ##### Direct-mapped Caches
 *example - access pattern*
 ![[Screenshot 2024-10-13 at 9.36.59 PM.png]]![[Screenshot 2024-10-13 at 9.37.14 PM.png]]
@@ -70,7 +82,9 @@ double computeMean(int length, double *values) {
 - avoid misses from two active values using same set (**conflict misses**)
 
 *cache operation*
-![[Screenshot 2024-10-14 at 8.27.43 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-14 at 8.27.43 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 **Associative Lookup Possibilites**
 1. none of the blocks for the index are valid
@@ -101,7 +115,9 @@ double computeMean(int length, double *values) {
 3. **fully-associative**: one set total (everything in one set)
 
 **TIO Formula Update**
-![[Screenshot 2024-10-14 at 8.47.43 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-14 at 8.47.43 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 ##### Cache Accesses and C Code
 *exercise - what data cache accesses does this function do?*
 ```C
@@ -141,7 +157,15 @@ odd_sum += array[3];
 - how many data cache misses on a 1-set direct-mapped cache with 8B blocks?
 
 **Possibilities**
-![[Screenshot 2024-10-14 at 9.16.11 PM.png | center | 500]]![[Screenshot 2024-10-14 at 9.16.29 PM.png | center | 500]]![[Screenshot 2024-10-14 at 9.16.39 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-14 at 9.16.11 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-14 at 9.16.29 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-14 at 9.16.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 **Aside: Alignment**
 - compilers and malloc/new implementations usually try to **align** values
 - align = make address be multiple of something
@@ -319,7 +343,9 @@ two decision points:
 ##### Fast Writes
 - write appears to complete immediately when placed in buffer
 - memory can be much slower
-![[Screenshot 2024-10-15 at 12.59.43 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-15 at 12.59.43 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 ##### Cache Tradeoffs
 - larger caches → slower hits
 - higher associativity → slower hits
@@ -342,7 +368,9 @@ two decision points:
 - called a **TLB** (translation lookaside buffer)
 - (usually very small) cache of page table entries
 - TLB output can be used directly to form address
-![[Screenshot 2024-10-21 at 1.57.47 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-21 at 1.57.47 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 *VPN, PTE*
 - only caches the page table lookup itself
 - (generally) just entries from the **last-level page tables**

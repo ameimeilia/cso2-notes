@@ -66,7 +66,9 @@ nav_order: 11
 5. B computes `D(key, ciphertext1) = message`
 
 *exercise*
-![[Screenshot 2024-11-10 at 1.45.53 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-10 at 1.45.53 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Asymmetric Encryption
 - two functions:
 	1. public encrypt: `PE(public_key, message) = ciphertext`
@@ -152,7 +154,9 @@ nav_order: 11
 	- websites can forward certificate instead of browser contacting CA directly
 
 **Certificate Hierarchy**
-![[Screenshot 2024-11-12 at 2.50.39 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-12 at 2.50.39 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Public-key infrastructure**
 - ecosystem with CA and certificates for everyone

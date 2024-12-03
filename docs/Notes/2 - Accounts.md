@@ -61,7 +61,9 @@ chmod o-rwx, u=rx foo
 
 **POSIX ACL Syntax**
 - can specify multiple users and multiple groups
-![[Screenshot 2024-09-09 at 11.05.14 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 11.05.14 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **POSIX ACLs on command line**
 ```shell

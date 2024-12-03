@@ -23,7 +23,9 @@ int check_passphrase(const char *versus) {
 ```
 
 - to exploit: run multiple guesses and measure time
-![[Screenshot 2024-11-27 at 12.42.35 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-27 at 12.42.35 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 ##### Timing and Cryptography
 - lots of asymmetric cryptography uses big-integer math
 	- ex. multiplying 500+ bit numbers together
@@ -44,9 +46,13 @@ int check_passphrase(const char *versus) {
 - goal: can’t tell what other webpages you visit
 - leakage examples:
 	1. browser marks visited links → scripts can query current color of something
-![[Screenshot 2024-12-02 at 1.20.10 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 1.20.10 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 	2. script in webpage times loop that writes to a big array → variation in timing depends on **other things running on machine** → create distinct “signatures”
-![[Screenshot 2024-12-02 at 1.23.38 PM.png | center | 300]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 1.23.38 PM.png | relative_url }}" alt="Screenshot" width="300">
+</div>
 ##### Inferring Cache Accesses
 - can figure out if a value is in a cache or not depending on timing of cache accesses
 - can figure out if a value was evicted depending on timing of accesses before/after evictions
@@ -121,7 +127,9 @@ if (TimeAccessTo(&array[index1]) > THRESHOLD ||
 	1. **Prime**: fill cache (or part of it) with values
 	2. do something that uses the cache
 	3. **Probe**: access values again and see where it’s slow
-![[Screenshot 2024-12-02 at 2.05.01 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 2.05.01 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *exercise - reading a value*
 ```C
@@ -138,7 +146,9 @@ for (int i = 0; i < CACHE_SIZE; i += BLOCK_SIZE) {
 ![[Screenshot 2024-12-02 at 2.17.37 PM.png]]
 ##### Revisiting an Earlier Example
 - *exercise - inferring cache accesses 1*: what is mystery is false but branch mispredicted?
-![[Screenshot 2024-12-02 at 2.19.36 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 2.19.36 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - pointer access and eviction is run
 
 **Reading a Value Without Really Reading It**
@@ -198,7 +208,9 @@ int secret;
 ... 
 y = array2[array1[x] * 4096];
 ```
-![[Screenshot 2024-12-02 at 2.48.26 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 2.48.26 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Exploit with Contrived Code**
 ```C
@@ -238,7 +250,9 @@ if (x < array1_size)
 - can still read arbitrary memory
 
 **Bounds Check in Kernel**
-![[Screenshot 2024-12-02 at 2.56.41 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-12-02 at 2.56.41 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Privilege Levels
 - vulnerable code runs with higher privileges
 - there are other common cases of higher privilege besides kernel mode

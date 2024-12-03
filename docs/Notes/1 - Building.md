@@ -41,18 +41,26 @@ nav_order: 1
 ![[Screenshot 2024-09-09 at 12.16.11 AM.png]]
 ##### Libraries and Command Line
 - linker processes files in order, put library at the end of the command
-![[Screenshot 2024-09-09 at 12.17.48 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 12.17.48 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 ##### make
 - runs commands based on what’s changed based on rules in `makefile`
-![[Screenshot 2024-08-29 at 3.14.46 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-08-29 at 3.14.46 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Make Rule Chains**
 - runs commands if any prerequisite modified after target after making sure prerequisites up to date
-![[Screenshot 2024-09-09 at 12.26.18 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 12.26.18 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Running Make**
-![[Screenshot 2024-09-09 at 12.27.51 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 12.27.51 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 **Make Example**
 ![[Screenshot 2024-09-09 at 12.50.45 AM.png]]
@@ -71,13 +79,17 @@ all: program1 program2 libfoo.a
 ```
 
 **Conventional Targets**
-![[Screenshot 2024-09-09 at 12.59.25 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 12.59.25 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 **Redundancy with Variables/Macros**
 ![[Screenshot 2024-09-09 at 1.04.17 AM.png]]
 
 **Conventional Variable Names**
-![[Screenshot 2024-09-09 at 1.02.25 AM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-09-09 at 1.02.25 AM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 **Pattern Rules/Built-In Rules**
 ![[Screenshot 2024-09-09 at 1.11.31 AM.png]]

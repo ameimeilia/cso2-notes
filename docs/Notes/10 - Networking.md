@@ -10,15 +10,21 @@ nav_order: 10
 ##### Networks Review
 **Mailbox Abstraction**
 - send/receive messages
-![[Screenshot 2024-11-06 at 3.18.56 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 3.18.56 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - essentially how the “raw” Internet is implemented
 - sockets are implemented on top of this
 
 **Sockets/Connections**
 - set up explicit connection then information can be sent on the connection
-![[Screenshot 2024-11-06 at 5.38.59 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 5.38.59 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Layers
-![[Screenshot 2024-11-06 at 5.42.28 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 5.42.28 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - application layer is built atop the transport layer which is built atop the network layer…
 ##### Network Limitations/Failures
 - messages can be:
@@ -31,11 +37,15 @@ nav_order: 10
 - Machine B sends an acknowledgement message to Machine A when the message is received
 - Machine A picks a limit to the amount of time it is willing to wait for the acknowledgement
 - if Machine A reaches the limit, it “times out” and attempts to send the message again
-![[Screenshot 2024-11-06 at 6.01.12 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 6.01.12 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - if Machine B’s acknowledgement message gets lost:
 	- Machine A should resend the message (which follow the original protocol)
 	- Machine B will need to be able to handle receiving multiple messages
-![[Screenshot 2024-11-06 at 6.01.44 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 6.01.44 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Handling Delayed Messages**
 - Machine A times out before the message reaches Machine B, so the message is resent
@@ -43,16 +53,22 @@ nav_order: 10
 - Machine A needs to be able to handle possibly receiving multiple acknowledgements
 
 *delayed message*
-![[Screenshot 2024-11-06 at 6.06.12 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 6.06.12 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *delayed acknowledgement*
-![[Screenshot 2024-11-06 at 6.03.42 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 6.03.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Handling Message Size Limitations**
 - solution: split up message
 - Machine B must be able to identify the correct parts of the message
 - Machine A must be able to identify the correct acknowledgements
-![[Screenshot 2024-11-06 at 6.21.46 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 6.21.46 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Handling Message Corruption**
 - send message + hashed message
@@ -88,7 +104,9 @@ nav_order: 10
 - strings of 0s represented by double-colons
 - typically given in blocks of $2^{80}$ or $2^{64}$ addresses
 ##### IPv4 Addresses and Routing Tables
-![[Screenshot 2024-11-09 at 9.15.08 PM.png | center | 450]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-09 at 9.15.08 PM.png | relative_url }}" alt="Screenshot" width="450">
+</div>
 
 **Selected Special IPv4 addresses**
 - `127.0.0.0 - 127.255.255.255`: local host/loopback
@@ -135,7 +153,9 @@ nav_order: 10
 ##### DNS: Distributed Database
 - domain name system
 - links addresses with names
-![[Screenshot 2024-11-09 at 10.04.42 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-09 at 10.04.42 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### URL/URIs
 - Uniform Resource Locators (URL)
 	- tells how to find “resource” on network

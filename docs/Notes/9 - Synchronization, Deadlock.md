@@ -21,14 +21,23 @@ nav_order: 9
 - processor designer will specify what is atomic
 - if not specified, not assume atomic
 ##### Thinking about Race Conditions
-![[Screenshot 2024-10-27 at 6.28.46 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-27 at 6.28.46 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Lost `add`**
-![[Screenshot 2024-10-27 at 6.36.55 PM.png | center | 500]]![[Screenshot 2024-10-27 at 6.38.24 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-27 at 6.36.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-27 at 6.38.24 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 - occurs on multiple cores since `add` is implemented with multiple steps (load, add, store internally)
 - can be interleaved with what other cores do
 ##### Compilers Move Loads/Stores
-![[Screenshot 2024-10-24 at 2.11.26 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-24 at 2.11.26 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### `pthreads` and reordering
 - many pthreads functions **prevent reordering**
 	- everything before function call actually happens before
@@ -92,13 +101,19 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 
 **unlucky timeline**
 - Thread 1 holds A lock, waiting for Thread 2 to release B lock
-![[Screenshot 2024-10-24 at 2.51.04 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-24 at 2.51.04 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 *example - deadlock with free space*
-![[Screenshot 2024-10-24 at 2.53.55 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-24 at 2.53.55 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **unlucky timeline**
-![[Screenshot 2024-10-24 at 2.54.18 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-24 at 2.54.18 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Deadlock
 - circular waiting for **resources**
 - often non-deterministic in practice
@@ -139,11 +154,15 @@ MoveFile(Dir* from_dir, Dir* to_dir, string filename) {
 barrier.Initialize(NumberOfThreads)
 barrier.Wait()    // return after all threads have waited
 ```
-![[Screenshot 2024-11-05 at 10.42.18 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 10.42.18 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 
 - useful for reuse structure in simulations
 *example - reuse with barriers*
-![[Screenshot 2024-10-29 at 2.10.59 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.10.59 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **`pthread` barriers**
 ```C
@@ -159,33 +178,51 @@ pthread_barrier_wait(&barrier);
 ```
 
 *exercise - pthreads barriers*
-![[Screenshot 2024-10-29 at 2.18.32 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.18.32 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Monitors/Condition Variables
 - **locks** for mutual exclusion
 - **condition variables** for waiting for event
 	- represents **list of waiting threads**
 	- operations: wait (for event); signal/broadcast (that event happened)
 - **monitor** = lock + 0 or more condition variables + shared data
-![[Screenshot 2024-10-29 at 2.26.50 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.26.50 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **`condvar` operations**
 `Wait(cv, lock)`: **unlock** lock, add current thread to cv queue, and **reacquire** lock before returning
-![[Screenshot 2024-10-29 at 2.29.23 PM.png | center | 500]]
-![[Screenshot 2024-10-29 at 2.30.15 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.29.23 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.30.15 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 `Broadcast(cv)`: remove all from cv queue
-![[Screenshot 2024-10-29 at 2.30.37 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.30.37 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 `Signal(cv)`: remove one from cv queue
-![[Screenshot 2024-10-29 at 2.31.00 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.31.00 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### `pthread` cv usage
-![[Screenshot 2024-11-05 at 11.00.36 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.00.36 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **WaitForFinish Timeline 1**
-![[Screenshot 2024-11-05 at 11.02.17 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.02.17 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **WaitForFinish Timeline 2**
-![[Screenshot 2024-11-05 at 11.05.56 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.05.56 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Why Use a `while` loop?**
 ```C
@@ -200,19 +237,27 @@ while (!finished) {
 - current threading libraries use Mesa-style
 - another reason why the `while` loop is necessary
 ##### Producer/Consumer
-![[Screenshot 2024-10-29 at 2.38.47 PM.png | center | 400]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-10-29 at 2.38.47 PM.png | relative_url }}" alt="Screenshot" width="400">
+</div>
 - shared buffer (queue) of fixed size
 - one or more producers insert into queue, one or more consumers remove from queue
 - producers/consumers don’t work in lockstep
 
 **Unbounded Buffer Producer/Consumer**
-![[Screenshot 2024-11-05 at 11.16.57 PM.png | center | 550]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.16.57 PM.png | relative_url }}" alt="Screenshot" width="550">
+</div>
 
 *0 Iterations of Loop*
-![[Screenshot 2024-11-05 at 11.22.32 PM.png | center | 550]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.22.32 PM.png | relative_url }}" alt="Screenshot" width="550">
+</div>
 
 *1 Iteration of Loop*
-![[Screenshot 2024-11-05 at 11.26.38 PM.png | center | 550]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.26.38 PM.png | relative_url }}" alt="Screenshot" width="550">
+</div>
 
 *2+ Iterations of Loop: Spurious Wakeup or 3+ Threads, shows Mesa-style*
 ![[Screenshot 2024-11-05 at 11.30.54 PM.png]]
@@ -259,10 +304,14 @@ pthread_mutex_destroy(&mutex);
  - broadcast/signal condition variable **every time you change X**
 
 *exercise: wait for both finished*
-![[Screenshot 2024-11-05 at 11.55.23 PM.png | center | 550]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.55.23 PM.png | relative_url }}" alt="Screenshot" width="550">
+</div>
 
 *exercise: one-use barrier*
-![[Screenshot 2024-11-05 at 11.58.00 PM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-05 at 11.58.00 PM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Generalizing Locks: Semaphores
 - has a non-negative integer **value** and two operations:
 	1. **P()** or **down** or **wait**: wait for semaphore to become positive (>0), then decrement by 1
@@ -290,17 +339,23 @@ void ReturnBook() {
 	1. processor “locks” 64-bytes cache block, fetching latest version
 	2. processor updates 4 bytes of 64-byte cache block
 	3. later, processor might give up cache block
-![[Screenshot 2024-11-06 at 12.06.57 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 12.06.57 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 
 **Performance vs Array Element Gap**
 - above 64 bytes, the two cache blocks are different, so there is no interference
-![[Screenshot 2024-11-06 at 12.07.18 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 12.07.18 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### False Sharing
 - two things that are actually independent but accesses get synchronized
 - solution: separate them
 
 *exercise - where is false sharing likely to occur?*
-![[Screenshot 2024-11-06 at 12.12.30 AM.png | center | 500]]
+<div style="text-align: center;">
+  <img src="{{ Screenshot 2024-11-06 at 12.12.30 AM.png | relative_url }}" alt="Screenshot" width="500">
+</div>
 ##### Transactions
 - set of operations that occur atomically
 - idea:
