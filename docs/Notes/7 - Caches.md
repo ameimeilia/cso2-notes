@@ -57,26 +57,41 @@ double computeMean(int length, double *values) {
 </div>
 ##### Direct-mapped Caches
 *example - access pattern*
-![[Screenshot 2024-10-13 at 9.36.59 PM.png]]![[Screenshot 2024-10-13 at 9.37.14 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 9.36.59 PM.png | relative_url }}" alt="Screenshot">
+</div>
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 9.37.14 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Mapping of sets to memory**
-![[Screenshot 2024-10-13 at 9.40.47 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 9.40.47 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Misses
 **Simulated Misses: BST Lookups**
 *simulated 16KB direct-mapped data cache; excluding BST setup*
-![[Screenshot 2024-10-13 at 9.43.22 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 9.43.22 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Actual Misses: BST Lookups**
 *actual 32KB more complex data cache - using set-associative cache*
-![[Screenshot 2024-10-13 at 9.46.30 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 9.46.30 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Simulated Misses: Matrix Multiplies**
 *simulated 16KB direct-mapped cache; excluding initial load*
-![[Screenshot 2024-10-13 at 10.02.41 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 10.02.41 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Actual Misses: Matrix Multiplies**
 *actual 32KB more complex data cache; excluding matrix initial load*
-![[Screenshot 2024-10-13 at 10.03.25 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-13 at 10.03.25 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Associativity
 - multiple places to put values with the same index
 - avoid misses from two active values using same set (**conflict misses**)
@@ -93,7 +108,9 @@ double computeMean(int length, double *values) {
 
 - the least recently used (**LRU**) bit tracks which way was read least recently and is updated on every access
 - once both ways are full, use the LRU bit to determine which way to replace to ensure temporal locality
-![[Screenshot 2024-10-14 at 8.32.05 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 8.32.05 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Example Replacement Policies**
 1. least recently used
@@ -143,7 +160,9 @@ scaleByFactor:
 	2. `scaleFactor` located at address `0x6bc3a0`
 
 - with direct mapped 32KB cache with 64B blocks
-![[Screenshot 2024-10-14 at 9.02.48 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 9.02.48 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Exercise: C and Cache Misses
 ```C
 int array[4];
@@ -183,7 +202,9 @@ odd_sum += array[3];
 - assume `array[0]` at beginning of cache block
 - how many data cache misses on a 1-set direct-mapped cache with 8B blocks?
 
-![[Screenshot 2024-10-14 at 9.25.26 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 9.25.26 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 ```C
 int array[8];
@@ -200,7 +221,9 @@ odd_sum += array[7];
 ```
 - how many data cache misses on a **2-set** direct-mapped cache with 8B blocks?
 
-![[Screenshot 2024-10-14 at 9.28.14 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 9.28.14 PM.png | relative_url }}" alt="Screenshot">
+</div>
 - observation: what happens in set 0 doesn’t affect set 1
 - when evaluating set 0 accesses, can ignore non-set 0 accesses/content
 
@@ -219,7 +242,9 @@ odd_sum += array[7];
 ```
 - how many data cache misses on a **2-set** direct-mapped cache with 8B blocks?
 
-![[Screenshot 2024-10-14 at 9.34.06 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 9.34.06 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 ```C
 int array[1024];
@@ -264,7 +289,9 @@ for (int i = 0; i < 512; i += 1){
 - row size is multiple of # sets * bytes/block
 - **takeaway**: always access arrays in row major order
 ##### Mapping of Sets to Memory (3-way)
-![[Screenshot 2024-10-14 at 11.44.43 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-14 at 11.44.43 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Exercise: C and Cache Misses (Assoc.)
 ```C
 int array[1024];
@@ -299,10 +326,14 @@ odd_sum += array[769]; // miss
 - how many data cache misses on a 2KB 2-way set associative cache with 16B blocks?
 ##### Simulated Misses
 **BST Lookups**
-![[Screenshot 2024-10-15 at 12.00.15 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.00.15 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Matrix Multiplies**
-![[Screenshot 2024-10-15 at 12.00.43 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.00.43 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Handling Writes
 two decision points:
 1. if the value is not in the cache, do we add it?
@@ -320,26 +351,42 @@ two decision points:
 	1. **write-through**: write value to cache then to memory
 	2. **write-back**: write value to cache, then write to memory when a conflict occurs
 *write-allocate*
-![[Screenshot 2024-10-15 at 12.38.48 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.38.48 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *write-no-allocate*
-![[Screenshot 2024-10-15 at 12.39.14 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.39.14 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *write-through*
-![[Screenshot 2024-10-15 at 12.39.54 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.39.54 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *write-back*
-![[Screenshot 2024-10-15 at 12.42.29 AM.png]]
-![[Screenshot 2024-10-15 at 12.43.56 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.42.29 AM.png | relative_url }}" alt="Screenshot">
+</div>
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.43.56 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example: write-allocate + write-back*
-![[Screenshot 2024-10-15 at 12.47.00 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.47.00 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example: write-no-allocate + write-back*
-![[Screenshot 2024-10-15 at 12.47.39 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.47.39 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *exercise*
-![[Screenshot 2024-10-15 at 12.56.15 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-15 at 12.56.15 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Fast Writes
 - write appears to complete immediately when placed in buffer
 - memory can be much slower
@@ -382,16 +429,26 @@ two decision points:
 - few active page table entries at a time enables highly associative cache designs
 ##### TLB and Two-level Lookup
 **TLB Hit**
-![[Screenshot 2024-10-21 at 2.16.19 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 2.16.19 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **TLB Miss**
 - at the end, send the PTE to the TLB to store
-![[Screenshot 2024-10-21 at 2.16.44 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 2.16.44 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### TLB Organization (2 way set associative)
-![[Screenshot 2024-10-21 at 2.25.43 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 2.25.43 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *exercise - TLB access pattern setup*
-![[Screenshot 2024-10-21 at 2.39.45 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 2.39.45 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example - TLB access pattern*
-![[Screenshot 2024-10-21 at 3.05.08 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 3.05.08 PM.png | relative_url }}" alt="Screenshot">
+</div>

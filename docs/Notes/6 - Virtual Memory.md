@@ -35,7 +35,10 @@ nav_order: 6
   <img src="{{ Screenshot 2024-09-29 at 11.27.33 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
 
-*exercise - page table lookup*![[Screenshot 2024-09-24 at 3.29.25 PM.png]]
+*exercise - page table lookup*
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-24 at 3.29.25 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Permission Bits
 - additional bits in page table entry that define:
 	- user mode access
@@ -49,7 +52,9 @@ nav_order: 6
 - everything else can be handled **in response to page faults**
 
 *example*
-![[Screenshot 2024-09-26 at 2.15.48 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-26 at 2.15.48 PM.png | relative_url }}" alt="Screenshot">
+</div>
 1. pushq triggers exception
 2. hardware wants to access address 0x7FFFBFF8
 3. OS looks up what should be there: stack
@@ -66,10 +71,14 @@ nav_order: 6
 3. page fault is triggered when either process tries to write to a read-only page
 4. OS copies the page, creating a new physical page
 5. OS reruns the write instruction
-![[Screenshot 2024-09-26 at 2.42.50 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-26 at 2.42.50 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **`fork` with copy-on-write, if parent writes first**
-![[Screenshot 2024-09-26 at 2.41.31 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-26 at 2.41.31 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `mmap`
 - function to “map”/link a file to memory
 ```C
@@ -91,7 +100,9 @@ data[100] = 'x';
 	4. pointer to backing file (if any)
 
 *exercise - page table lookup*
-![[Screenshot 2024-09-30 at 1.38.26 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-30 at 1.38.26 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Page Tricks Generally
 - deliberately **make program trigger page/protection fault**
 - but **don’t assume page/protection fault is an error**
@@ -113,18 +124,28 @@ tricks:
 - precise exceptions: no side effects from faulting instruction or after (e.g. pushq that caused fault did not change %rsp before fault)
 ##### Page Tables in Memory
 - page tables have to be encoded into memory
-![[Screenshot 2024-09-26 at 3.07.18 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-26 at 3.07.18 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Memory Access with Page Table**
-![[Screenshot 2024-09-30 at 1.48.16 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-30 at 1.48.16 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *exercise*
-![[Screenshot 2024-09-30 at 2.05.44 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-30 at 2.05.44 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example - pagetable lookup*
-![[Screenshot 2024-10-01 at 2.10.26 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-01 at 2.10.26 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `translate()`
-![[Screenshot 2024-10-05 at 5.46.22 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-05 at 5.46.22 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `page_allocate()`
 - allocates a page table with a valid entry for arg, then make all other entries invalid
 - if the page table is already allocated, simply add the valid entry
@@ -141,7 +162,9 @@ error_code = posix_memalign(&result, alingment, size);
 - lookup implemented in hardware → must be simple → split up address bits
 - should not involve many memory accesses → tree with many children from each node
 ##### Two-level Page Table Lookup
-![[Screenshot 2024-10-01 at 3.56.36 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-01 at 3.56.36 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *another view*
 <div style="text-align: center;">
@@ -158,11 +181,17 @@ error_code = posix_memalign(&result, alingment, size);
 </div>
 
 *example - 2 level page table lookups*
-![[Screenshot 2024-10-01 at 3.08.58 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-01 at 3.08.58 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
-![[Screenshot 2024-10-01 at 3.42.38 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-01 at 3.42.38 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
-![[Screenshot 2024-10-03 at 2.17.04 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-03 at 2.17.04 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 
 

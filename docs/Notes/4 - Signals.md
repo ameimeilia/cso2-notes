@@ -83,7 +83,9 @@ void handle_signint(){
 	printf("You pressed control-C.\n");
 }
 ```
-![[Screenshot 2024-09-18 at 10.08.11 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-18 at 10.08.11 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Signal Handler Safety
 - POSIX defines “async-signal-safe” functions
 - work correctly no matter what the function interrupts

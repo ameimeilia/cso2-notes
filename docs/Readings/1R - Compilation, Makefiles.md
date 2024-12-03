@@ -150,4 +150,6 @@ bye.o: bye.c bye.h
 %.o: %.c %.h config.h
     $(CC) -c $(CFLAGS) $< -o $@
 ```
-![[Screenshot 2024-08-29 at 4.30.53 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-08-29 at 4.30.53 PM.png | relative_url }}" alt="Screenshot">
+</div>

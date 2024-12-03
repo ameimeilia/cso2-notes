@@ -11,7 +11,9 @@ nav_order: 8
 1. **concurrency**: one thread for each different thing happening at the same time
 2. **parallelism**: do same thing with more resources
 ##### Single and Multithread Processes
-![[Screenshot 2024-10-21 at 3.09.54 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 3.09.54 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `pthread_create`
 ```C
 void *ComputerPi(void *argument) { ... }
@@ -83,28 +85,40 @@ if (error != 0) {
 ```
 ##### Thread Example
 *example - sum, only globals*
-![[Screenshot 2024-10-21 at 10.02.27 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 10.02.27 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Memory Layout**
-![[Screenshot 2024-10-21 at 10.02.40 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 10.02.40 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example - sum, to global, with thread IDs*
-![[Screenshot 2024-10-21 at 10.07.53 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-21 at 10.07.53 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Thread Example
 *example - sum, info struct*
-![[Screenshot 2024-10-27 at 6.00.01 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-27 at 6.00.01 PM.png | relative_url }}" alt="Screenshot">
+</div>
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-22 at 2.27.57 PM.png | relative_url }}" alt="Screenshot" width="400">
 </div>
 
 *example - sum, to main stack*
-![[Screenshot 2024-10-27 at 6.00.53 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-27 at 6.00.53 PM.png | relative_url }}" alt="Screenshot">
+</div>
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-22 at 2.30.51 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>
 
 *example - sum, on heap*
-![[Screenshot 2024-10-27 at 6.08.11 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-27 at 6.08.11 PM.png | relative_url }}" alt="Screenshot">
+</div>
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-10-22 at 2.31.11 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>

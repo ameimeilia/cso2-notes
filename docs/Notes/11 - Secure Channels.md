@@ -231,7 +231,9 @@ nav_order: 11
 5. A combines Y with public value from B to get number
 6. B combines Z with public value from A to get number
 ##### Typical TLS Handshake
-![[Screenshot 2024-11-16 at 4.36.42 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-16 at 4.36.42 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **After Handshake**
 - use symmetric encryption

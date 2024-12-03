@@ -27,7 +27,9 @@ essential operations:
 </div>
 
 *example*
-![[Screenshot 2024-09-22 at 11.30.08 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 11.30.08 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `fork`
 *example - outputs depend on timing*
 <div style="text-align: center;">
@@ -52,7 +54,9 @@ essential operations:
 </div>
 
 *exec in the kernel*
-![[Screenshot 2024-09-22 at 3.13.10 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 3.13.10 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Why `fork/exec`?
 - alternative: only have one function to spawn a new program:
 	- Windows `CreateProcess()`; POSIX’s `posix_spawn`
@@ -71,12 +75,21 @@ essential operations:
 </div>
 
 *waitpid pattern*
-![[Screenshot 2024-09-22 at 3.36.04 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 3.36.04 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
-![[Screenshot 2024-09-22 at 3.40.58 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 3.40.58 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *waitpid exercise*
-![[Screenshot 2024-09-22 at 3.51.28 PM.png]]![[Screenshot 2024-09-22 at 4.01.04 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 3.51.28 PM.png | relative_url }}" alt="Screenshot">
+</div>
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 4.01.04 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### POSIX command-line features
 - searching for programs uses the `PATH` variable → `/bin`, `/usr/bin`, `.`
 	- `ls -l` → `/bin/ls -l`
@@ -130,7 +143,9 @@ redirection: `./program >output.txt`
 3. exec, preserving new stdout/stdin/stderr
 
 *example - dup2() redirects stdout to output.txt*
-![[Screenshot 2024-09-22 at 8.09.46 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 8.09.46 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### open/dup/close/etc. and fd array
 ```C
 struct process_info {
@@ -149,11 +164,15 @@ struct process_info {
 </div>
 
 *example*
-![[Screenshot 2024-09-22 at 9.17.21 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 9.17.21 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Pipe and Pipelines**
 - create pipe in parent, redirect in children
-![[Screenshot 2024-09-22 at 9.29.20 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-22 at 9.29.20 PM.png | relative_url }}" alt="Screenshot">
+</div>
 <div style="text-align: center;">
   <img src="{{ Screenshot 2024-09-22 at 9.30.39 PM.png | relative_url }}" alt="Screenshot" width="500">
 </div>

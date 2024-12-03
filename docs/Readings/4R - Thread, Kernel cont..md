@@ -56,7 +56,9 @@ nav_order: 5
 #### 2.3 Exception-Like Constructs
 ##### 2.3.1 Signals
 - signals enable communication from kernel → user code, vs. exceptions enable communication from user code → kernel
-![[Screenshot 2024-09-10 at 5.04.49 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-10 at 5.04.49 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 - Signals are like interrupts but for kernel-to-user communication.
 - A signal can suspend the currently running code, run a signal handler (if defined), and resume the interrupted code afterward.

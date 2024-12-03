@@ -65,7 +65,9 @@ AccessAllOf(array);
 *other_address += 1; 
 TimeAccessingArray();
 ```
-![[Screenshot 2024-12-02 at 1.34.06 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 1.34.06 PM.png | relative_url }}" alt="Screenshot">
+</div>
 - B: evict from same row
 - D: if tag and index are the same, the `*other_address` is part of the array
 
@@ -87,7 +89,9 @@ if (TimeAccessTo(&array[index]) > THRESHOLD) {
 	/* pointer accessed */ 
 }
 ```
-![[Screenshot 2024-12-02 at 1.50.41 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 1.50.41 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 - aside: this detects when the pointer is accessed but not necessarily if `mystery` is true since branch prediction may haves started the cache access
 
@@ -104,7 +108,9 @@ for (int i = 0; i < CACHE_SIZE; i += BLOCK_SIZE) {
 	}
 }
 ```
-![[Screenshot 2024-12-02 at 1.59.35 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 1.59.35 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *exercise - inferring cache accesses 3*
 ```C
@@ -119,7 +125,9 @@ if (TimeAccessTo(&array[index1]) > THRESHOLD ||
 	/* pointer accessed */ 
 }
 ```
-![[Screenshot 2024-12-02 at 2.02.30 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 2.02.30 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Prime + Probe
 - coined in attacks on AES encryption
 - one way to measure how cache is used
@@ -143,7 +151,9 @@ for (int i = 0; i < CACHE_SIZE; i += BLOCK_SIZE) {
 	} 
 }
 ```
-![[Screenshot 2024-12-02 at 2.17.37 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 2.17.37 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Revisiting an Earlier Example
 - *exercise - inferring cache accesses 1*: what is mystery is false but branch mispredicted?
 <div style="text-align: center;">
@@ -198,7 +208,9 @@ int secret;
 ... 
 y = array2[array1[x] * 4096];
 ```
-![[Screenshot 2024-12-02 at 2.43.39 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-12-02 at 2.43.39 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *exercise*
 ```C

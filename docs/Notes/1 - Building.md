@@ -8,7 +8,9 @@ nav_order: 1
 > [!note]
 > Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 ##### C/Pointer Review
-![[C+PointersReview | center]]
+<div style="text-align: center">
+  <img src="{{ C+PointersReview | center | relative_url }}" alt="Screenshot">
+</div>
 ##### Dynamic vs. Static Linking
 **Dynamic Linking**
 - fewer copies of std lib machine code on system
@@ -16,11 +18,15 @@ nav_order: 1
 - fewer copies in memory
 - possibly slower to startup/run
 - libc.so is “c standard library,” dynamic library, shared library, “shared object”
-![[Screenshot 2024-09-09 at 12.04.42 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 12.04.42 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Static Linking**
 - libc.a file
-![[Screenshot 2024-09-09 at 12.23.21 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 12.23.21 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Static vs. Shared Libraries
 **Static Libraries**
 - `lib[name].a`
@@ -38,7 +44,9 @@ nav_order: 1
 - runtime path set separately
 
 **Finding Shared Libraries**
-![[Screenshot 2024-09-09 at 12.16.11 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 12.16.11 AM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Libraries and Command Line
 - linker processes files in order, put library at the end of the command
 <div style="text-align: center;">
@@ -63,7 +71,9 @@ nav_order: 1
 </div>
 
 **Make Example**
-![[Screenshot 2024-09-09 at 12.50.45 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 12.50.45 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Phony Targets**
 - common to have Makefile targets that aren’t files, or don’t build a file
@@ -84,7 +94,9 @@ all: program1 program2 libfoo.a
 </div>
 
 **Redundancy with Variables/Macros**
-![[Screenshot 2024-09-09 at 1.04.17 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 1.04.17 AM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Conventional Variable Names**
 <div style="text-align: center;">
@@ -92,5 +104,7 @@ all: program1 program2 libfoo.a
 </div>
 
 **Pattern Rules/Built-In Rules**
-![[Screenshot 2024-09-09 at 1.11.31 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-09-09 at 1.11.31 AM.png | relative_url }}" alt="Screenshot">
+</div>
 

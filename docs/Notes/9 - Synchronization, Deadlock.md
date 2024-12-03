@@ -78,7 +78,9 @@ pthread_mutex_unlock(&account_lock);
 ```
 
 *exercise*
-![[Screenshot 2024-10-24 at 2.41.30 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-24 at 2.41.30 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Deadlock Examples
 *example - moving two files*
 - Thread 1: MoveFile(A, B, “foo”)
@@ -126,7 +128,9 @@ void MoveFile(Dir *from_dir, Dir *to_dir, string filename) {
 4. **circular wait**: there exists a set $\{T_1,…T_n\}$ of waiting threads such that $T_1$ is waiting for a resource hold by $T_2$, … $T_n$ is waiting for a resource hold by $T_1$
 
 *exercise*
-![[Screenshot 2024-10-24 at 3.09.53 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-24 at 3.09.53 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Deadlock Prevention Techniques
 1. **infinite resources**: no mutual exclusion
 2. **no shared resources**: no mutual exclusion
@@ -260,10 +264,14 @@ while (!finished) {
 </div>
 
 *2+ Iterations of Loop: Spurious Wakeup or 3+ Threads, shows Mesa-style*
-![[Screenshot 2024-11-05 at 11.30.54 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-05 at 11.30.54 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Bounded Buffer Producer/Consumer**
-![[Screenshot 2024-11-05 at 11.41.52 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-05 at 11.41.52 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Monitor Pattern
 ```C
 pthread_mutex_t mutex;

@@ -10,7 +10,9 @@ nav_order: 10
 - each other thread is created by invoking a system call
 #### `pthread_create`
  - creates a new thread using the following arguments:
-![[Screenshot 2024-10-27 at 8.31.39 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-10-27 at 8.31.39 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### `pthread_attr_t`
 - usually just passing `NULL` is ok
 - **Thread Attributes**: Controls thread behavior, requiring:

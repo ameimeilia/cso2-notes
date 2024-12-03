@@ -83,10 +83,14 @@ nav_order: 10
 	- SFTP on SSH on TCP…
 ##### Names and Addresses
 - used to specify machine
-![[Screenshot 2024-11-09 at 8.48.13 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-09 at 8.48.13 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 *example - an Ethernet frame*
-![[Screenshot 2024-11-09 at 8.57.41 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-09 at 8.57.41 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### The Network Layer
 - Internet Protocol (IP) v4 or v6 in common use today
 
@@ -143,13 +147,17 @@ nav_order: 10
 	- protocol=TCP/UDP, local IP address, local port, remote IP address, remote port
 	- used by OS to lookup socket from table
 
-![[Screenshot 2024-11-09 at 9.48.15 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-09 at 9.48.15 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Non-connection Sockets**
 - TCP servers waiting for connections
 - UDP sockets with no articular remote host
 - Linux: OS keeps 5-tuple with “wildcard” remote address
-![[Screenshot 2024-11-09 at 9.52.00 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-09 at 9.52.00 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### DNS: Distributed Database
 - domain name system
 - links addresses with names
@@ -196,4 +204,6 @@ nav_order: 10
 **Implementing NAT**
 - use NAT translation table, managed by router
 - add entries as connections are made and remove as connections are closed
-![[Screenshot 2024-11-10 at 12.54.42 AM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-10 at 12.54.42 AM.png | relative_url }}" alt="Screenshot">
+</div>

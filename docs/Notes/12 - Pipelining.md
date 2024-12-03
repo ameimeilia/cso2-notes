@@ -36,7 +36,9 @@ nav_order: 12
 
 ##### Data Hazard
 - pipeline reads **older value** instead of value that should have just been written
-![[Screenshot 2024-11-16 at 5.31.27 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-16 at 5.31.27 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Compiler Solution**
 - change the ISA: all `addq`s take effect 3 instructions later
@@ -121,7 +123,9 @@ nav_order: 12
 - more pipeline stages = more hazards
 
 *exercise - different pipeline*
-![[Screenshot 2024-11-25 at 6.50.15 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-25 at 6.50.15 PM.png | relative_url }}" alt="Screenshot">
+</div>
 ##### Beyond Pipelining
 **Multiple Issue**
 - start **more than one instruction/cycle**
@@ -156,7 +160,9 @@ nav_order: 12
 </div>
 
 *example - write after write*
-![[Screenshot 2024-11-25 at 7.09.38 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-25 at 7.09.38 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **Keeping Multiple Versions**
 - for write-after-write problem: need to keep copies of multiple versions
@@ -169,7 +175,9 @@ nav_order: 12
 - track which physical registers are ready
 - compare physical register numbers to do forwarding
 ##### An OOO Pipeline
-![[Screenshot 2024-11-25 at 7.13.49 PM.png]]
+<div style="text-align: center">
+  <img src="{{ Screenshot 2024-11-25 at 7.13.49 PM.png | relative_url }}" alt="Screenshot">
+</div>
 
 **An OOO Pipeline Diagram**
 <div style="text-align: center;">
