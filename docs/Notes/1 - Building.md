@@ -1,3 +1,5 @@
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/building.pdf
 ##### C/Pointer Review
 ![[C+PointersReview | center]]
 ##### Dynamic vs. Static Linking

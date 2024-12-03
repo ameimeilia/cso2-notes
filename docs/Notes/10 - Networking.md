@@ -1,37 +1,6 @@
-##### Transactions
-- set of operations that occur atomically
-- idea:
-	- something higher-level handles locking
-	- library/database/etc. makes “transaction” happen all at once
-```C
-BeginTransaction();
-int FromOldBalance = GetBalance(FromAccount);
-int ToOldBalance = GetBalance(ToAccount); 
-SetBalance(FromAccount, FromOldBalance - 100); 
-SetBalance(ToAccount, FromOldBalance + 100);
-EndTransaction();
-```
 
-- **Consistency**: locking to make sure no other operations interfere
-- **Durability**: making sure on crash, no partial transaction occurs
-##### Implementing Consistency
-**Simple**
-- only run one transaction at a time
-- only one lock that each transaction holds for the duration of the transaction
-
-**Locking**
-- have locks for each individual thing
-- acquire locks as we read/write, then release the locks at the end of the transaction
-- if deadlock: **undo everything**, go back to `BeginTransaction()`, retry
-	- possible solution: keep list of writes instead of writing, apply writes only at `EndTransaction()`
-
-**Optimistic**
-- on read: copy version # for value read
-- on write: record value to be written, but don’t write yet
-- on end transaction:
-	- acquire locks on everything
-	- make sure values read haven’t been changed since read
-- if they have changed (different version #), retry transaction
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/network.pdf
 ##### Networks Review
 **Mailbox Abstraction**
 - send/receive messages
@@ -161,3 +130,44 @@ EndTransaction();
 - domain name system
 - links addresses with names
 ![[Screenshot 2024-11-09 at 10.04.42 PM.png | center | 500]]
+##### URL/URIs
+- Uniform Resource Locators (URL)
+	- tells how to find “resource” on network
+	- uniform: one syntax for identifying resources
+- Uniform Resource Identifiers (URI)
+	- superset of URLs
+
+**URI Generally**
+- `scheme://authority/path?query#fragment`
+
+1. `scheme:`: what protocol
+2. `//authority/`: user@host:port OR host:port OR user@host OR host
+3. `path`: which resource
+4. `?query`: key/value pairs
+5. `#fragment`: place in resource (local, not part of request for service)
+
+*examples*
+- `https://kytos02.cs.virginia.edu:443/cs3130-spring2023/quizzes/quiz.php?qid=02#q2`
+- `//www.cs.virginia.edu/~cr4bd/3130/S2023`: scheme implied from context
+- `/~cr4bd/3130/S2023`: scheme/host implied from context
+##### Auto-configuration
+- often the local router machine runs a service to assign IP addresses to a machine
+- the local router:
+	- knows which IP addresses are available
+	- sysadmin may configure in mapping from MAC addresses to IP addresses
+
+**Dynamic Host Configuration Protocol (DHCP) High-level**
+- protocol done over UDP, used to contact local router without using IP:
+	1. use IP address `0.0.0.0` as source address and `255.255.255.255` as destination address
+	2. contacts everyone on the local network
+	3. local server is configured to reply to the request with an address + **time limit**
+	4. later: can send messages to local server to renew/give up address
+##### Network Address Translation
+- IPv4 address are scarce → convert many private address to one public address
+- outside POV: several machines share one public IP address
+- inside POV: machines have different IP on private network
+
+**Implementing NAT**
+- use NAT translation table, managed by router
+- add entries as connections are made and remove as connections are closed
+![[Screenshot 2024-11-10 at 12.54.42 AM.png]]

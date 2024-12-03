@@ -1,3 +1,5 @@
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/ooo.pdf, https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/bpred.pdf
 ##### Instruction Queue and Dispatch
 - iterate through instruction queue each cycle and determine which instructions can be run
 ![[Screenshot 2024-11-25 at 9.19.18 PM.png]]

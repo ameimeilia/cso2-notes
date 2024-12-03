@@ -1,3 +1,31 @@
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/signals.pdf
+##### Signals
+- Unix-like operating system feature
+- similar to exceptions, but for processes
+- can be triggered by external processes
+	- kill command/system call
+- can be triggered by special events
+	- pressing ctrl+C
+	- other events that would normally terminate program (seg fault, illegal instruction, /0)
+- can invoke *signal handler*
+![[Screenshot 2024-09-15 at 5.26.16 PM.png | center | 500]]
+
+**Exceptions vs. Signals**
+
+| (hardware) exceptions       | signals                         |
+| --------------------------- | ------------------------------- |
+| handler runs in kernel mode | handler runs in user mode       |
+| hardware decides when       | OS decides when                 |
+| hardware needs to save PC   | OS needs to save PC + registers |
+| processor PC changes        | thread program counter changes  |
+**Example Signal Program**
+![[Screenshot 2024-09-15 at 5.18.19 PM.png | center | 400]]
+
+![[Screenshot 2024-09-15 at 5.19.05 PM.png | center | 400]]
+
+**’Forwarding’ Exception as Signal**
+![[Screenshot 2024-09-10 at 3.10.34 PM.png | center | 500]]
 ##### Signal API
 1. `sigaction`: register handler for signal
 2. `kill`: sends signal to process using process ID
@@ -58,22 +86,3 @@ void handle_signint(){
 
 *example*
 ![[Screenshot 2024-09-22 at 1.04.27 AM.png | center | 500]]
-##### POSIX Process Management
-essential operations:
-1. `getpid`: process information
-2. `fork`: process creation
-3. `exec`: running programs
-4. `waitpid`: waiting for processes to finish
-5. `exit`, `kill`: process destruction, ‘signaling’
-
-**`fork`**
-- `pid_t fork()`: copies the current process
-- returns twice:
-	1. in parent (original process): PID of new child process
-	2. in child (new process): 0
-- **everything (but PID) duplicated** in parent, child
-	- memory, file descriptors, registers
-![[Screenshot 2024-09-22 at 11.23.14 AM.png | center | 500]]
-
-*example*
-![[Screenshot 2024-09-22 at 11.30.08 AM.png]]

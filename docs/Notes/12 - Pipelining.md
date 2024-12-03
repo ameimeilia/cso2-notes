@@ -1,3 +1,67 @@
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/pipeline.pdf
+##### Pipelining
+- **latency**: time to complete one instruction
+- **throughput**: rate to complete many instructions (time between finishes = time between starts)
+![[Screenshot 2024-11-16 at 5.08.20 PM.png | center | 500]]
+
+*exercise - latency/throughput*
+![[Screenshot 2024-11-16 at 5.17.19 PM.png | center | 500]]![[Screenshot 2024-11-16 at 5.18.10 PM.png | center | 500]]
+##### Diminishing Returns
+- can’t infinitely increase stages to decrease cycle time
+
+**Register Delays**
+![[Screenshot 2024-11-16 at 5.26.42 PM.png | center | 500]]
+
+**Uneven Split**
+![[Screenshot 2024-11-16 at 5.27.00 PM.png | center | 500]]
+
+##### Data Hazard
+- pipeline reads **older value** instead of value that should have just been written
+![[Screenshot 2024-11-16 at 5.31.27 PM.png]]
+
+**Compiler Solution**
+- change the ISA: all `addq`s take effect 3 instructions later
+	- assume we can read the register value while it is being written back, else 4 instructions later
+- problem: must recompile every time processor changes
+
+*3 instructions later*
+![[Screenshot 2024-11-16 at 5.50.17 PM.png | center | 500]]
+
+*4 instructions later*
+![[Screenshot 2024-11-16 at 5.50.54 PM.png | center | 500]]
+##### Control Hazard
+- pipeline needs to read value that **hasn’t been computed** yet
+
+**Hardware Solution**
+- **stalling**: hardware inserts `nop`s where necessary
+![[Screenshot 2024-11-16 at 6.06.49 PM.png | center | 500]]
+
+**Guessing Solution**
+- speculate that `jne` **won’t** go to `LABEL`
+- if right, 2 cycles faster
+- if wrong: undo before too late
+
+*speculating wrong*
+![[Screenshot 2024-11-16 at 11.00.52 PM.png | center | 500]]
+- to “undo” partially executed instructions, remove values from pipeline registers
+- more complicated pipelines: replace written values in cache/registers/etc.
+##### Forwarding/Bypassing
+**Opportunity 1**
+- better solution for data hazard
+![[Screenshot 2024-11-16 at 11.07.33 PM.png | center | 500]]
+
+- to exploit the opportunity, use a mux that compares the register #’s in machine code
+![[Screenshot 2024-11-16 at 11.08.27 PM.png | center | 500]]
+
+**Opportunity 2**
+![[Screenshot 2024-11-16 at 11.11.31 PM.png | center | 500]]
+
+- to exploit the opportunity, add a second wire to the mux
+![[Screenshot 2024-11-16 at 11.12.27 PM.png | center | 500]]
+
+*exercise - forwarding paths*
+![[Screenshot 2024-11-16 at 11.26.09 PM.png | center | 500]]
 ##### Stalling + Forwarding
 - combine stalling and forwarding when a memory read is followed by an operation on the read value
 	- forwarding from memory directly to execute requires completing both stages in one clock cycle → invalid

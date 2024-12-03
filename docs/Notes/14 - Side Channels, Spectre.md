@@ -1,3 +1,5 @@
+> [!note]
+> Slides: https://www.cs.virginia.edu/~cr4bd/3130/F2024/slides/spectre.pdf
 ##### Side Channels
 - unintended communication channel which leaks information
 
@@ -230,3 +232,16 @@ if (x < array1_size)
 
 **Bounds Check in Kernel**
 ![[Screenshot 2024-12-02 at 2.56.41 PM.png | center | 500]]
+##### Privilege Levels
+- vulnerable code runs with higher privileges
+- there are other common cases of higher privilege besides kernel mode
+	- ex. scripts in web browsers
+##### JavaScript
+- scripts in webpages
+- not supposed to be able to read arbitrary memory, but:
+	- can access arrays to examine caches
+	- could take advantage of some browser function being vulnerable
+	- **could supply vulnerable code itself**
+##### Just-in-time Compilation
+- for performance, compiled to machine code, run in browser
+- not supposed to access arbitrary browser memory
